@@ -9,6 +9,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "./ui/select";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const roomsData = [
 	{
@@ -18,6 +19,7 @@ const roomsData = [
 		area: "300 sq ft",
 		rent: "$500/month",
 		availability: "2 rooms",
+		location: "kalyanpur, Kanpur",
 	},
 	{
 		title: "Spacious 1BHK Apartment",
@@ -26,6 +28,7 @@ const roomsData = [
 		area: "500 sq ft",
 		rent: "$800/month",
 		availability: "1 room",
+		location: "Ravatpur, Kanpur",
 	},
 	{
 		title: "Furnished Studio Flat",
@@ -34,14 +37,16 @@ const roomsData = [
 		area: "250 sq ft",
 		rent: "$450/month",
 		availability: "3 rooms",
+		location: "Panki, Kanpur",
 	},
 	{
 		title: "Deluxe 2BHK Apartment",
 		image: "/living.jpg",
-		category: "PG",
+		category: "Apartment",
 		area: "800 sq ft",
 		rent: "$1200/month",
 		availability: "1 room",
+		location: "Gurdev, Kanpur",
 	},
 	{
 		title: "Shared Accommodation",
@@ -50,6 +55,7 @@ const roomsData = [
 		area: "150 sq ft",
 		rent: "$300/month",
 		availability: "5 rooms",
+		location: "kalyanpur, Kanpur",
 	},
 	{
 		title: "Luxury Studio Apartment",
@@ -58,6 +64,7 @@ const roomsData = [
 		area: "400 sq ft",
 		rent: "$700/month",
 		availability: "2 rooms",
+		location: "IIT, Kanpur",
 	},
 	{
 		title: "Cozy 1BHK Apartment",
@@ -66,6 +73,7 @@ const roomsData = [
 		area: "400 sq ft",
 		rent: "$650/month",
 		availability: "3 rooms",
+		location: "kalyanpur, Kanpur",
 	},
 	{
 		title: "Spacious 2BHK Apartment",
@@ -74,6 +82,7 @@ const roomsData = [
 		area: "700 sq ft",
 		rent: "$1000/month",
 		availability: "2 rooms",
+		location: "kalyanpur, Kanpur",
 	},
 	{
 		title: "Spacious 2BHK Apartment",
@@ -82,6 +91,7 @@ const roomsData = [
 		area: "700 sq ft",
 		rent: "$1000/month",
 		availability: "2 rooms",
+		location: "Kakadeo, Kanpur",
 	},
 ];
 
@@ -89,21 +99,27 @@ export default function Properties() {
 	const [properties, setProperties] = useState(roomsData);
 	const [filters, setFilters] = useState({
 		budget: 0,
-		propertyType: "PG",
+		propertyType: "All",
 	});
+
 	const handleFilterChange = (key, value) => {
 		setFilters((prevFilters) => ({
 			...prevFilters,
 			[key]: value,
 		}));
 	};
+
 	const filteredProperties = useMemo(() => {
 		return properties.filter((property) => {
-			if (filters.budget > 0 && property.rent > filters.budget) {
+			const rentValue = parseInt(
+				property.rent.replace(/[^0-9]/g, ""),
+				10
+			);
+			if (filters.budget > 0 && rentValue > filters.budget) {
 				return false;
 			}
 			if (
-				filters.propertyType &&
+				filters.propertyType !== "All" &&
 				property.category !== filters.propertyType
 			) {
 				return false;
@@ -111,6 +127,7 @@ export default function Properties() {
 			return true;
 		});
 	}, [properties, filters]);
+
 	return (
 		<section className='w-full py-12 md:py-16 lg:py-20'>
 			<div className='container grid gap-8 px-4 md:px-6'>
@@ -127,7 +144,7 @@ export default function Properties() {
 					</div>
 				</div>
 				<div className='flex flex-col md:flex-row justify-end items-end md:items-center gap-4 mb-3'>
-					<div className='grid grid-flow-col items-center gap-2'>
+					<div className='grid items-center gap-2'>
 						<Label htmlFor='budget' className='text-sm font-medium'>
 							Budget
 						</Label>
@@ -137,48 +154,46 @@ export default function Properties() {
 							placeholder='Enter budget'
 							value={filters.budget}
 							onChange={(e) =>
-								handleFilterChange("budget", e.target.value)
+								handleFilterChange(
+									"budget",
+									parseInt(e.target.value, 10)
+								)
 							}
 						/>
 					</div>
-					{/* <div className='grid gap-2'>
-							<Label
-								htmlFor='property-type'
-								className='text-sm font-medium'>
-								Property Type
-							</Label>
-							<Select
-								id='property-type'
-								value={filters.propertyType || "PG"}
-								onValueChange={(e) =>
-									handleFilterChange(
-										"propertyType",
-										e.target.value
-									)
-								}>
-								<SelectTrigger>
-									<SelectValue placeholder='Select property type' />
-								</SelectTrigger>
-								<SelectContent>
-									<SelectItem value=''>All</SelectItem>
-									<SelectItem value='Apartment'>
-										Apartment
-									</SelectItem>
-									<SelectItem value='Flat'>Flat</SelectItem>
-									<SelectItem value='PG'>PG</SelectItem>
-									<SelectItem value='Studio'>
-										Studio
-									</SelectItem>
-								</SelectContent>
-							</Select>
-						</div> */}
+					<div className='grid gap-2'>
+						<Label
+							htmlFor='property-type'
+							className='text-sm font-medium'>
+							Property Type
+						</Label>
+						<Select
+							id='property-type'
+							value={filters.propertyType}
+							onValueChange={(value) =>
+								handleFilterChange("propertyType", value)
+							}>
+							<SelectTrigger>
+								<SelectValue placeholder='Select property type' />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectItem value='All'>All</SelectItem>
+								<SelectItem value='Apartment'>
+									Apartment
+								</SelectItem>
+								<SelectItem value='Flat'>Flat</SelectItem>
+								<SelectItem value='PG'>PG</SelectItem>
+								<SelectItem value='Studio'>Studio</SelectItem>
+							</SelectContent>
+						</Select>
+					</div>
 				</div>
 				<div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
 					{filteredProperties.map((room, index) => (
 						<div
 							key={index}
 							className='group relative overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-xl'>
-							<Link href='#' className='absolute inset-0 z-10'>
+							<Link to='#' className='absolute inset-0 z-10'>
 								<span className='sr-only'>View Room</span>
 							</Link>
 							<img
@@ -192,6 +207,10 @@ export default function Properties() {
 								<h3 className='text-lg font-semibold'>
 									{room.title}
 								</h3>
+								<div className='flex items-center gap-1'>
+									<FaMapMarkerAlt className='text-prime' />
+									<p className='text-sm'>{room.location}</p>
+								</div>
 								<div className='flex items-center justify-between'>
 									<div className='text-sm text-muted-foreground'>
 										<span className='font-medium'>

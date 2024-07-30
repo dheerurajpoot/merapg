@@ -10,6 +10,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import PropertyDetails from "./pages/PropertyDetails";
+import BlogOverview from "./pages/BlogOverview";
 
 function App() {
 	return (
@@ -24,6 +26,11 @@ function App() {
 						<Route path='/faq' element={<Faq />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/signup' element={<Signup />} />
+						<Route
+							path='/property/:id'
+							element={<PropertyDetails />}
+						/>
+						<Route path='/blog/:id' element={<BlogOverview />} />
 						<Route
 							path='/privacy-policy'
 							element={<PrivacyPolicy />}

@@ -13,6 +13,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const roomsData = [
 	{
+		_id: "1",
 		title: "Cozy Studio Apartment",
 		image: "/bedroom.jpg",
 		category: "PG",
@@ -22,6 +23,7 @@ const roomsData = [
 		location: "kalyanpur, Kanpur",
 	},
 	{
+		_id: "2",
 		title: "Spacious 1BHK Apartment",
 		image: "/living.jpg",
 		category: "PG",
@@ -31,6 +33,7 @@ const roomsData = [
 		location: "Ravatpur, Kanpur",
 	},
 	{
+		_id: "3",
 		title: "Furnished Studio Flat",
 		image: "/funiture.jpg",
 		category: "PG",
@@ -40,6 +43,7 @@ const roomsData = [
 		location: "Panki, Kanpur",
 	},
 	{
+		_id: "4",
 		title: "Deluxe 2BHK Apartment",
 		image: "/living.jpg",
 		category: "Apartment",
@@ -49,6 +53,7 @@ const roomsData = [
 		location: "Gurdev, Kanpur",
 	},
 	{
+		_id: "5",
 		title: "Shared Accommodation",
 		image: "/funiture.jpg",
 		category: "Shared",
@@ -58,6 +63,7 @@ const roomsData = [
 		location: "kalyanpur, Kanpur",
 	},
 	{
+		_id: "6",
 		title: "Luxury Studio Apartment",
 		image: "/living.jpg",
 		category: "PG",
@@ -67,6 +73,7 @@ const roomsData = [
 		location: "IIT, Kanpur",
 	},
 	{
+		_id: "7",
 		title: "Cozy 1BHK Apartment",
 		image: "/bedroom.jpg",
 		category: "PG",
@@ -76,6 +83,7 @@ const roomsData = [
 		location: "kalyanpur, Kanpur",
 	},
 	{
+		_id: "8",
 		title: "Spacious 2BHK Apartment",
 		image: "/funiture.jpg",
 		category: "PG",
@@ -85,6 +93,7 @@ const roomsData = [
 		location: "kalyanpur, Kanpur",
 	},
 	{
+		_id: "9",
 		title: "Spacious 2BHK Apartment",
 		image: "/bedroom.jpg",
 		category: "PG",
@@ -193,7 +202,9 @@ export default function Properties() {
 						<div
 							key={index}
 							className='group relative overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-xl'>
-							<Link to='#' className='absolute inset-0 z-10'>
+							<Link
+								to={`/property/${room._id}`}
+								className='absolute inset-0 z-10'>
 								<span className='sr-only'>View Room</span>
 							</Link>
 							<img

@@ -85,9 +85,11 @@ const Hero = () => {
 								</Button>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent align='start'>
-								<DropdownMenuItem>Residential</DropdownMenuItem>
-								<DropdownMenuItem>Commercial</DropdownMenuItem>
-								<DropdownMenuItem>Land</DropdownMenuItem>
+								<DropdownMenuItem>PG</DropdownMenuItem>
+								<DropdownMenuItem>Room</DropdownMenuItem>
+								<DropdownMenuItem>Apartment</DropdownMenuItem>
+								<DropdownMenuItem>Shared</DropdownMenuItem>
+								<DropdownMenuItem>Other</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
 						<DropdownMenu>
@@ -100,11 +102,11 @@ const Hero = () => {
 								</Button>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent align='start'>
-								<DropdownMenuItem>New York</DropdownMenuItem>
-								<DropdownMenuItem>Los Angeles</DropdownMenuItem>
-								<DropdownMenuItem>Chicago</DropdownMenuItem>
-								<DropdownMenuItem>Houston</DropdownMenuItem>
-								<DropdownMenuItem>Phoenix</DropdownMenuItem>
+								<DropdownMenuItem>Kalyanpur</DropdownMenuItem>
+								<DropdownMenuItem>Ravatpur</DropdownMenuItem>
+								<DropdownMenuItem>Panki</DropdownMenuItem>
+								<DropdownMenuItem>Gurdeo</DropdownMenuItem>
+								<DropdownMenuItem>Kakadeo</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
 						<Button className='flex-none bg-prime hover:bg-prime/80'>

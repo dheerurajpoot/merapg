@@ -11,7 +11,7 @@ const Header = () => {
 		<>
 			<header className='container mx-auto w-full top-0 z-50 h-16 bg-[#fff] transition-all duration-300'>
 				<div className='container flex h-full items-center justify-between px-4 md:px-6'>
-					<Link href='#' className='flex items-center gap-2'>
+					<Link href='/' className='flex items-center gap-2'>
 						<FaLaptopHouse className='h-6 w-6 text-prime' />
 						<span className='text-2xl text-prime font-semibold'>
 							MeraPG

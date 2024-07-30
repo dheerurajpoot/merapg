@@ -12,7 +12,7 @@ const Footer = () => {
 			<footer className='bg-muted py-12 text-muted-foreground'>
 				<div className='container mx-auto grid grid-cols-1 gap-10 px-4 sm:grid-cols-2 md:grid-cols-4 lg:px-0'>
 					<div className='space-y-4'>
-						<Link href='#' className='flex items-center'>
+						<Link to='/' className='flex items-center'>
 							<FaLaptopHouse className='h-8 w-8 text-primary' />
 							<span className='ml-2 text-xl font-bold'>
 								MeraPG
@@ -26,31 +26,35 @@ const Footer = () => {
 					</div>
 					<div className='grid gap-2'>
 						<h4 className='text-sm font-medium'>Quick Links</h4>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link to='/about' className='text-sm hover:underline'>
 							About
 						</Link>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link to='/contact' className='text-sm hover:underline'>
 							Contact
 						</Link>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link
+							to='/privacy-policy'
+							className='text-sm hover:underline'>
 							Privacy Policy
 						</Link>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link
+							to='/terms-conditions'
+							className='text-sm hover:underline'>
 							Terms of Service
 						</Link>
 					</div>
 					<div className='grid gap-2'>
 						<h4 className='text-sm font-medium'>Explore</h4>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link to='#' className='text-sm hover:underline'>
 							Find PGs
 						</Link>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link to='#' className='text-sm hover:underline'>
 							Become a Host
 						</Link>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link to='/blog' className='text-sm hover:underline'>
 							Blog
 						</Link>
-						<Link href='#' className='text-sm hover:underline'>
+						<Link to='/faq' className='text-sm hover:underline'>
 							FAQs
 						</Link>
 					</div>
@@ -58,22 +62,22 @@ const Footer = () => {
 						<h4 className='text-sm font-medium'>Follow Us</h4>
 						<div className='flex items-center gap-2'>
 							<Link
-								href='#'
+								to='#'
 								className='text-primary hover:text-primary-foreground'>
 								<BsTwitterX className='h-5 w-5' />
 							</Link>
 							<Link
-								href='#'
+								to='#'
 								className='text-primary hover:text-primary-foreground'>
 								<FaFacebook className='h-5 w-5' />
 							</Link>
 							<Link
-								href='#'
+								to='#'
 								className='text-primary hover:text-primary-foreground'>
 								<FaInstagram className='h-5 w-5' />
 							</Link>
 							<Link
-								href='#'
+								to='#'
 								className='text-primary hover:text-primary-foreground'>
 								<FaLinkedin className='h-5 w-5' />
 							</Link>

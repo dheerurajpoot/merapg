@@ -19,34 +19,41 @@ const Header = () => {
 					</Link>
 					<nav className='hidden items-center gap-6 md:flex'>
 						<Link
-							href='#'
+							to='/'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
 							Home
 						</Link>
 						<Link
-							href='#'
+							to='#'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
 							Find PG
 						</Link>
 						<Link
-							href='#'
+							to='/blog'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
-							Property
+							Blog
 						</Link>
 						<Link
-							href='#'
+							to='/about'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
 							About
 						</Link>
 						<Link
-							href='#'
+							to='/contact'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
 							Contact
 						</Link>
 					</nav>
-					<Button className='hidden md:inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors bg-prime hover:bg-prime/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
-						Add Property
-					</Button>
+					<div className='flex gap-3 items-center'>
+						<Link
+							to='/login'
+							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
+							Login
+						</Link>
+						<Button className='hidden md:inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors bg-prime hover:bg-prime/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
+							Add Property
+						</Button>
+					</div>
 					<Sheet>
 						<SheetTrigger asChild>
 							<Button
@@ -64,27 +71,27 @@ const Header = () => {
 							className='w-[80vw] md:hidden'>
 							<div className='flex flex-col gap-6 p-6'>
 								<Link
-									href='#'
+									to='/'
 									className='text-lg font-medium hover:underline underline-offset-4'>
 									Home
 								</Link>
 								<Link
-									href='#'
+									to='#'
 									className='text-lg font-medium hover:underline underline-offset-4'>
 									Find PG
 								</Link>
 								<Link
-									href='#'
+									to='/blog'
 									className='text-lg font-medium hover:underline underline-offset-4'>
-									Property
+									Blog
 								</Link>
 								<Link
-									href='#'
+									to='/about'
 									className='text-lg font-medium hover:underline underline-offset-4'>
 									About
 								</Link>
 								<Link
-									href='#'
+									to='/contact'
 									className='text-lg font-medium hover:underline underline-offset-4'>
 									Contact
 								</Link>

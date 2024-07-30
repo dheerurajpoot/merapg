@@ -26,13 +26,6 @@ const Hero = () => {
 								comprehensive real estate search.
 							</p>
 						</div>
-						<div className='flex flex-col gap-2 min-[400px]:flex-row'>
-							<Link
-								href='#'
-								className='inline-flex h-10 items-center justify-center rounded-md bg-secondary px-8 text-sm font-medium text-secondary-foreground shadow transition-colors hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
-								Search Properties
-							</Link>
-						</div>
 					</div>
 					<div className='relative'>
 						<Carousel
@@ -40,7 +33,7 @@ const Hero = () => {
 								align: "center",
 								loop: true,
 								autoplay: true,
-								interval: 5000,
+								interval: 500,
 							}}
 							className='rounded-xl overflow-hidden'>
 							<CarouselContent>
@@ -114,7 +107,9 @@ const Hero = () => {
 								<DropdownMenuItem>Phoenix</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
-						<Button className='flex-none'>Search</Button>
+						<Button className='flex-none bg-prime hover:bg-prime/80'>
+							Search
+						</Button>
 					</div>
 				</div>
 			</section>

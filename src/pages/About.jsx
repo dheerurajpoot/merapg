@@ -28,7 +28,7 @@ const About = () => {
 									<div className='flex flex-col gap-2 min-[400px]:flex-row'>
 										<Link
 											href='#'
-											className='inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
+											className='inline-flex h-10 items-center justify-center rounded-md bg-prime px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-prime/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
 											Explore PGs
 										</Link>
 										<Link
@@ -272,12 +272,12 @@ const About = () => {
 												<Avatar>
 													<AvatarImage src='/placeholder-user.jpg' />
 													<AvatarFallback>
-														AS
+														DR
 													</AvatarFallback>
 												</Avatar>
 												<div>
 													<p className='text-sm font-medium leading-none'>
-														Aditya Sharma
+														Dheeru Rajpoot
 													</p>
 													<p className='text-xs text-muted-foreground'>
 														Co-founder, CEO
@@ -299,12 +299,12 @@ const About = () => {
 												<Avatar>
 													<AvatarImage src='/placeholder-user.jpg' />
 													<AvatarFallback>
-														SS
+														CM
 													</AvatarFallback>
 												</Avatar>
 												<div>
 													<p className='text-sm font-medium leading-none'>
-														Sanjana Sharma
+														Chandrakant Maurya
 													</p>
 													<p className='text-xs text-muted-foreground'>
 														Co-founder, COO
@@ -347,12 +347,12 @@ const About = () => {
 							</div>
 							<div className='flex flex-col gap-2 min-[400px]:flex-row justify-center'>
 								<Link
-									href='#'
-									className='inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
+									to='/'
+									className='inline-flex h-10 items-center justify-center rounded-md bg-prime px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-prime/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
 									Explore PGs
 								</Link>
 								<Link
-									href='#'
+									to='/'
 									className='inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
 									List Your PG
 								</Link>

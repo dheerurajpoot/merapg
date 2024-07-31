@@ -1,5 +1,6 @@
 import React from "react";
 import { IoMdMail } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Newsletter = () => {
 	return (
@@ -44,11 +45,11 @@ const Newsletter = () => {
 							</div>
 							<div className='mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300'>
 								We care about the protection of your data.{" "}
-								<a
-									href='#'
+								<Link
+									to='/privacy-policy'
 									className='font-medium text-primary-600 dark:text-primary-500 hover:underline'>
 									Read our Privacy Policy
-								</a>
+								</Link>
 								.
 							</div>
 						</form>

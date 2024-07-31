@@ -42,23 +42,23 @@ const Contact = () => {
 							</h2>
 							<div className='space-y-2'>
 								<div className='flex items-center gap-2'>
-									<IoIosMail className='h-5 w-5 text-primary' />
-									<a
-										href='#'
+									<IoIosMail className='h-5 w-5 text-prime' />
+									<Link
+										to='mailto:contact@merapg.com'
 										className='text-muted-foreground hover:text-primary'>
-										support@merapg.com
-									</a>
+										contact@merapg.com
+									</Link>
 								</div>
 								<div className='flex items-center gap-2'>
-									<MdOutlinePhonelinkRing className='h-5 w-5 text-primary' />
+									<MdOutlinePhonelinkRing className='h-5 w-5 text-prime' />
 									<a
-										href='#'
+										href='tel:+919026315148'
 										className='text-muted-foreground hover:text-primary'>
-										+91-123-456-7890
+										+91-9026315148
 									</a>
 								</div>
 								<div className='flex items-start gap-2'>
-									<FaMapMarkerAlt className='mt-1 h-5 w-5 text-primary' />
+									<FaMapMarkerAlt className='mt-1 h-5 w-5 text-prime' />
 									<div className='text-muted-foreground'>
 										Old Shivli Road, Kalyanpur, Kanpur
 										(208017)

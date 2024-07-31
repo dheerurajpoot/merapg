@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 const Sortabout = () => {
 	return (
@@ -17,9 +18,11 @@ const Sortabout = () => {
 							make your search for the perfect PG or hostel as
 							smooth as butter
 						</p>
-						<Button className='flex-none my-4 bg-prime hover:bg-prime/80'>
-							Read more
-						</Button>
+						<Link to='/about'>
+							<Button className='flex-none my-4 bg-prime hover:bg-prime/80'>
+								Read more
+							</Button>
+						</Link>
 					</div>
 
 					<div className='lg:col-span-4 mt-10 lg:mt-0'>

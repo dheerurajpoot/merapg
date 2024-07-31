@@ -44,7 +44,7 @@ const Blogs = () => {
 								</p>
 								<Link
 									to={`/blog/${1}`}
-									className='inline-flex items-center text-primary hover:underline'>
+									className='inline-flex items-center text-prime hover:underline'>
 									Read More
 									<FaArrowRightLong className='ml-1 w-4 h-4' />
 								</Link>

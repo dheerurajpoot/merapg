@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { FaLaptopHouse } from "react-icons/fa";
 import { IoMenuSharp } from "react-icons/io5";
-// import { AiOutlineClose } from "react-icons/ai";
 
 const Header = () => {
 	return (
 		<>
-			<header className='container mx-auto w-full top-0 z-50 h-16 bg-[#fff] transition-all duration-300'>
+			<header className='container mx-auto w-full top-0 z-50 h-20 bg-[#fff] transition-all duration-300'>
 				<div className='container flex h-full items-center justify-between px-4 md:px-6'>
 					<Link to='/' className='flex items-center gap-2'>
-						<FaLaptopHouse className='h-6 w-6 text-prime' />
-						<span className='text-2xl text-prime font-semibold'>
+						<FaLaptopHouse className='h-8 w-8 text-prime' />
+						<span className='text-3xl text-prime font-bold'>
 							MeraPG
 						</span>
 					</Link>
@@ -44,7 +43,7 @@ const Header = () => {
 							Contact
 						</Link>
 					</nav>
-					<div className='flex gap-3 items-center'>
+					<div className='flex md:gap-3 items-center'>
 						<Link
 							to='/login'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
@@ -71,6 +70,9 @@ const Header = () => {
 						<SheetContent
 							side='left'
 							className='w-[80vw] md:hidden'>
+							<SheetTitle className='visually-hidden'>
+								Menu
+							</SheetTitle>
 							<div className='flex flex-col gap-6 p-6'>
 								<Link
 									to='/'

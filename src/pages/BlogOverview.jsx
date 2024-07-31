@@ -9,19 +9,19 @@ const BlogOverview = () => {
 			<div className='w-full max-w-6xl mx-auto py-12 md:py-20'>
 				<article className='grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8'>
 					<div>
-						<div className='prose prose-gray max-w-none dark:prose-invert'>
-							<div className='space-y-4'>
-								<h1 className='text-4xl font-bold tracking-tight lg:text-5xl'>
+						<div className='prose prose-gray max-w-none px-6 dark:prose-invert'>
+							<div className='space-y-4 mb-4'>
+								<h1 className='text-2xl md:text-4xl font-bold tracking-tight lg:text-5xl'>
 									Unlocking the Secrets to Finding the Perfect
 									PG: A MeraPG Guide
 								</h1>
-								<div className='flex items-center gap-4'>
+								<div className='flex items-center gap-2 md:gap-4'>
 									<div className='flex items-center gap-2 text-muted-foreground'>
 										<Avatar className='w-8 h-8'>
 											<AvatarImage src='/placeholder-user.jpg' />
-											<AvatarFallback>JD</AvatarFallback>
+											<AvatarFallback>DR</AvatarFallback>
 										</Avatar>
-										<div>John Doe</div>
+										<div>Dheeru Rajpoot</div>
 									</div>
 									<div className='text-muted-foreground'>
 										Published on July 30, 2024
@@ -189,11 +189,11 @@ const BlogOverview = () => {
 								<div className='flex items-start gap-4'>
 									<Avatar className='w-16 h-16'>
 										<AvatarImage src='/placeholder-user.jpg' />
-										<AvatarFallback>JD</AvatarFallback>
+										<AvatarFallback>DR</AvatarFallback>
 									</Avatar>
 									<div>
 										<div className='font-medium'>
-											John Doe
+											Dheeru Rajpoot
 										</div>
 										<div className='text-muted-foreground'>
 											John is a content writer and editor

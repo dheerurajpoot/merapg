@@ -152,7 +152,7 @@ export default function Properties() {
 						</p>
 					</div>
 				</div>
-				<div className='flex flex-col md:flex-row justify-end items-end md:items-center gap-4 mb-3'>
+				<div className='flex md:justify-end justify-center items-end md:items-center gap-4 mb-3'>
 					<div className='grid items-center gap-2'>
 						<Label htmlFor='budget' className='text-sm font-medium'>
 							Budget

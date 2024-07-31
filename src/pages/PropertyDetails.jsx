@@ -4,10 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaWifi } from "react-icons/fa";
-import { FaKitchenSet } from "react-icons/fa6";
-import { FaFan } from "react-icons/fa";
-import { LuBedDouble } from "react-icons/lu";
 
 const PropertyDetails = () => {
 	return (
@@ -27,7 +23,7 @@ const PropertyDetails = () => {
 							Cozy 2BHK PG in Noida
 						</h1>
 						<p className='text-muted-foreground'>
-							Sector 62, Noida, Uttar Pradesh
+							Address: Sector 62, Noida, Uttar Pradesh
 						</p>
 					</div>
 				</section>
@@ -35,10 +31,21 @@ const PropertyDetails = () => {
 					<div className='grid gap-8 md:grid-cols-[1fr_300px]'>
 						<div className='grid gap-8'>
 							<section>
-								<h2 className='mb-4 text-2xl font-bold'>
+								<h2 className='mb-2 text-2xl font-bold'>
 									Property Details
 								</h2>
-								<div className='grid gap-4 sm:grid-cols-2'>
+								<h4 className='text-lg font-semibold'>
+									Description
+								</h4>
+								<p className='mb-6'>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Cum sequi quo a provident,
+									laudantium magnam autem adipisci alias
+									repellendus accusamus impedit minima ea
+									corrupti iure cumque id totam eligendi.
+									Officiis.
+								</p>
+								<div className='grid gap-4 grid-cols-2'>
 									<div className='grid gap-1'>
 										<p className='text-sm font-medium text-muted-foreground'>
 											Type
@@ -47,56 +54,21 @@ const PropertyDetails = () => {
 									</div>
 									<div className='grid gap-1'>
 										<p className='text-sm font-medium text-muted-foreground'>
-											Size
+											Area
 										</p>
 										<p>800 sq ft</p>
 									</div>
 									<div className='grid gap-1'>
 										<p className='text-sm font-medium text-muted-foreground'>
-											Bedrooms
+											Services
+										</p>
+										<p>WiFi</p>
+									</div>
+									<div className='grid gap-1'>
+										<p className='text-sm font-medium text-muted-foreground'>
+											Availbility
 										</p>
 										<p>2</p>
-									</div>
-									<div className='grid gap-1'>
-										<p className='text-sm font-medium text-muted-foreground'>
-											Bathrooms
-										</p>
-										<p>2</p>
-									</div>
-									<div className='grid gap-1'>
-										<p className='text-sm font-medium text-muted-foreground'>
-											Furnished
-										</p>
-										<p>Yes</p>
-									</div>
-									<div className='grid gap-1'>
-										<p className='text-sm font-medium text-muted-foreground'>
-											Parking
-										</p>
-										<p>Yes</p>
-									</div>
-								</div>
-							</section>
-							<section>
-								<h2 className='mb-4 text-2xl font-bold'>
-									Amenities
-								</h2>
-								<div className='grid grid-cols-2 gap-4 sm:grid-cols-3'>
-									<div className='flex items-center gap-2'>
-										<FaWifi className='h-5 w-5 text-muted-foreground' />
-										<p>Wifi</p>
-									</div>
-									<div className='flex items-center gap-2'>
-										<FaKitchenSet className='h-5 w-5 text-muted-foreground' />
-										<p>Kitchen</p>
-									</div>
-									<div className='flex items-center gap-2'>
-										<FaFan className='h-5 w-5 text-muted-foreground' />
-										<p>AC</p>
-									</div>
-									<div className='flex items-center gap-2'>
-										<LuBedDouble className='h-5 w-5 text-muted-foreground' />
-										<p>Bed</p>
 									</div>
 								</div>
 							</section>
@@ -213,13 +185,15 @@ const PropertyDetails = () => {
 										/>
 										<Button
 											type='submit'
-											className='w-full'>
+											className='w-full bg-prime hover:bg-prime/90'>
 											Send Message
 										</Button>
 									</form>
 								</CardContent>
 							</Card>
-							<Button size='lg' className='w-full'>
+							<Button
+								size='lg'
+								className='w-full bg-prime hover:bg-prime/90'>
 								Book Now
 							</Button>
 						</div>

@@ -69,7 +69,7 @@ const Hero = () => {
 					</div>
 				</div>
 				<div className='container px-4 md:px-6 mt-8'>
-					<div className='bg-background rounded-lg shadow-lg p-4 md:p-6 flex gap-4'>
+					<div className='bg-background rounded-lg shadow-lg p-4 md:p-6 flex flex-col md:flex-row gap-4'>
 						<Input
 							type='text'
 							placeholder='Search by keyword'

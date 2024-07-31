@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import PropertyDetails from "./pages/PropertyDetails";
 import BlogOverview from "./pages/BlogOverview";
+import AddProperty from "./pages/AddProperty";
 
 function App() {
 	return (
@@ -26,6 +27,7 @@ function App() {
 						<Route path='/faq' element={<Faq />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/signup' element={<Signup />} />
+						<Route path='/addproperty' element={<AddProperty />} />
 						<Route
 							path='/property/:id'
 							element={<PropertyDetails />}

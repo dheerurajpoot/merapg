@@ -13,6 +13,7 @@ import Signup from "./pages/Signup";
 import PropertyDetails from "./pages/PropertyDetails";
 import BlogOverview from "./pages/BlogOverview";
 import AddProperty from "./pages/AddProperty";
+import Profile from "./pages/Profile";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/about' element={<About />} />
 						<Route path='/faq' element={<Faq />} />
+						<Route path='/profile' element={<Profile />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/signup' element={<Signup />} />
 						<Route path='/addproperty' element={<AddProperty />} />

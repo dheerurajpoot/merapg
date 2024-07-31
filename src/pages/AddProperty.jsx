@@ -9,9 +9,60 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import React from "react";
+import React, { useState } from "react";
 
 const AddProperty = () => {
+	const [formData, setFormData] = useState({
+		title: "",
+		description: "",
+		availability: "",
+		category: "",
+		rent: "",
+		area: "",
+		location: "",
+		services: "",
+		ownerName: "",
+		ownerContact: "",
+		thumbnail: null,
+		images: [],
+	});
+
+	const handleChange = (e) => {
+		const { id, value, type, files } = e.target;
+		if (type === "file") {
+			setFormData({
+				...formData,
+				[id]: files,
+			});
+		} else {
+			setFormData({
+				...formData,
+				[id]: value,
+			});
+		}
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const data = new FormData();
+		for (const key in formData) {
+			if (key === "images") {
+				for (let i = 0; i < formData.images.length; i++) {
+					data.append("images", formData.images[i]);
+				}
+			} else {
+				data.append(key, formData[key]);
+			}
+		}
+
+		try {
+			console.log(formData);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	return (
 		<>
 			<hr />
@@ -31,13 +82,15 @@ const AddProperty = () => {
 							alt='Add property banner'
 						/>
 					</div>
-					<form className='grid gap-6'>
+					<form className='grid gap-6' onSubmit={handleSubmit}>
 						<div className='grid gap-2'>
-							<Label htmlFor='name'>Title</Label>
+							<Label htmlFor='title'>Title</Label>
 							<Input
-								id='name'
+								id='title'
 								type='text'
 								placeholder='Enter title'
+								value={formData.title}
+								onChange={handleChange}
 							/>
 						</div>
 						<div className='grid gap-2'>
@@ -46,27 +99,45 @@ const AddProperty = () => {
 								id='description'
 								rows={4}
 								placeholder='Describe your property'
+								value={formData.description}
+								onChange={handleChange}
 							/>
 						</div>
 						<div className='grid grid-cols-2 gap-4'>
 							<div className='grid gap-2'>
-								<Label htmlFor='availbility'>Availbility</Label>
-								<Select id='availbility'>
+								<Label htmlFor='availability'>
+									Availability
+								</Label>
+								<Select
+									id='availability'
+									onValueChange={(value) =>
+										setFormData({
+											...formData,
+											availability: value,
+										})
+									}>
 									<SelectTrigger>
-										<SelectValue placeholder='Select Availbility' />
+										<SelectValue placeholder='Select Availability' />
 									</SelectTrigger>
 									<SelectContent>
 										<SelectItem value='1'>1</SelectItem>
 										<SelectItem value='2'>2</SelectItem>
 										<SelectItem value='3'>3</SelectItem>
 										<SelectItem value='4'>4</SelectItem>
-										<SelectItem value='5'>5+</SelectItem>
+										<SelectItem value='5+'>5+</SelectItem>
 									</SelectContent>
 								</Select>
 							</div>
 							<div className='grid gap-2'>
 								<Label htmlFor='category'>Category</Label>
-								<Select id='category'>
+								<Select
+									id='category'
+									onValueChange={(value) =>
+										setFormData({
+											...formData,
+											category: value,
+										})
+									}>
 									<SelectTrigger>
 										<SelectValue placeholder='Select category' />
 									</SelectTrigger>
@@ -92,6 +163,8 @@ const AddProperty = () => {
 									id='rent'
 									type='number'
 									placeholder='Enter rent'
+									value={formData.rent}
+									onChange={handleChange}
 								/>
 							</div>
 							<div className='grid gap-2'>
@@ -100,6 +173,8 @@ const AddProperty = () => {
 									id='area'
 									type='number'
 									placeholder='Enter area'
+									value={formData.area}
+									onChange={handleChange}
 								/>
 							</div>
 						</div>
@@ -110,6 +185,8 @@ const AddProperty = () => {
 									id='location'
 									type='text'
 									placeholder='Enter location'
+									value={formData.location}
+									onChange={handleChange}
 								/>
 							</div>
 							<div className='grid gap-2'>
@@ -118,36 +195,51 @@ const AddProperty = () => {
 									id='services'
 									type='text'
 									placeholder='Enter services'
+									value={formData.services}
+									onChange={handleChange}
 								/>
 							</div>
 						</div>
 						<div className='grid grid-cols-2 gap-4'>
 							<div className='grid gap-2'>
-								<Label htmlFor='owner-name'>Owner Name</Label>
+								<Label htmlFor='ownerName'>Owner Name</Label>
 								<Input
-									id='owner-name'
+									id='ownerName'
 									type='text'
 									placeholder='Enter owner name'
+									value={formData.ownerName}
+									onChange={handleChange}
 								/>
 							</div>
 							<div className='grid gap-2'>
-								<Label htmlFor='owner-contact'>
+								<Label htmlFor='ownerContact'>
 									Owner Contact
 								</Label>
 								<Input
-									id='owner-contact'
+									id='ownerContact'
 									type='tel'
 									placeholder='Enter owner contact'
+									value={formData.ownerContact}
+									onChange={handleChange}
 								/>
 							</div>
 						</div>
 						<div className='grid gap-2'>
 							<Label htmlFor='thumbnail'>Thumbnail Image</Label>
-							<Input id='thumbnail' type='file' />
+							<Input
+								id='thumbnail'
+								type='file'
+								onChange={handleChange}
+							/>
 						</div>
 						<div className='grid gap-2'>
 							<Label htmlFor='images'>Property Images</Label>
-							<Input id='images' type='file' multiple />
+							<Input
+								id='images'
+								type='file'
+								multiple
+								onChange={handleChange}
+							/>
 						</div>
 						<Button
 							type='submit'

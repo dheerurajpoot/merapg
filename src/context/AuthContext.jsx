@@ -28,7 +28,8 @@ export const AuthProvider = ({ children }) => {
 			localStorage.removeItem("user");
 			setTimeout(() => {
 				toast.success("Log out successfully!");
-			}, 1000);
+				window.location.reload();
+			}, 500);
 		} catch (error) {
 			console.log("error in logout", error);
 		}

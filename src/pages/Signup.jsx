@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
 	return (
@@ -27,7 +28,7 @@ const Signup = () => {
 								now to get started.
 							</p>
 							<Link
-								to='/signup'
+								to='/login'
 								className='inline-flex h-10 items-center justify-center rounded-md bg-prime hover:bg-prime/80 px-6 text-sm font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
 								Log In
 							</Link>
@@ -43,46 +44,65 @@ const Signup = () => {
 								</CardDescription>
 							</CardHeader>
 							<CardContent className='space-y-4'>
-								<div className='space-y-2'>
-									<Label htmlFor='name'>Name</Label>
-									<Input
-										id='name'
-										type='text'
-										placeholder='Enter name'
-										required
-									/>
-								</div>
-								<div className='space-y-2'>
-									<Label htmlFor='email'>Email</Label>
-									<Input
-										id='email'
-										type='email'
-										placeholder='m@example.com'
-										required
-									/>
-								</div>
-								<div className='space-y-2'>
-									<div className='flex items-center'>
-										<Label htmlFor='password'>
-											Password
-										</Label>
-										<Link
-											href='#'
-											className='ml-auto inline-block text-sm underline'>
-											Forgot your password?
-										</Link>
+								<div className='flex items-center justify-center px-4 lg:px-6'>
+									<div className='w-full max-w-md space-y-6'>
+										<Button
+											variant='outline'
+											className='w-full'>
+											<FcGoogle className='mr-2 h-5 w-5' />
+											Sign up with Gmail
+										</Button>
+										<div className='relative'>
+											<div className='absolute inset-0 flex items-center'>
+												<span className='w-full border-t' />
+											</div>
+											<div className='relative flex justify-center text-xs uppercase'>
+												<span className='bg-background px-2 text-muted-foreground'>
+													Or continue with
+												</span>
+											</div>
+										</div>
+										<form className='space-y-4'>
+											<div className='space-y-2'>
+												<Label htmlFor='name'>
+													Name
+												</Label>
+												<Input
+													id='name'
+													placeholder='Enter name'
+													required
+												/>
+											</div>
+											<div className='space-y-2'>
+												<Label htmlFor='email'>
+													Email
+												</Label>
+												<Input
+													id='email'
+													type='email'
+													placeholder='Enter email'
+													required
+												/>
+											</div>
+											<div className='space-y-2'>
+												<Label htmlFor='password'>
+													Password
+												</Label>
+												<Input
+													id='password'
+													type='password'
+													placeholder='Enter password'
+													required
+												/>
+											</div>
+											<Button
+												type='submit'
+												className='w-full bg-prime hover:bg-prime/90'>
+												Sign Up
+											</Button>
+										</form>
 									</div>
-									<Input
-										id='password'
-										type='password'
-										required
-									/>
 								</div>
-								<Button
-									type='submit'
-									className='w-full bg-prime hover:bg-prime/80'>
-									Sign Up
-								</Button>
 							</CardContent>
 							<CardFooter>
 								<div className='text-center text-sm'>

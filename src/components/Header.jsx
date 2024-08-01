@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { FaLaptopHouse } from "react-icons/fa";
 import { IoMenuSharp } from "react-icons/io5";
+import { AuthContext } from "@/context/AuthContext";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 const Header = () => {
+	const { user, logout } = useContext(AuthContext);
 	return (
 		<>
 			<header className='container mx-auto w-full top-0 z-50 h-20 bg-[#fff] transition-all duration-300'>
@@ -44,11 +53,30 @@ const Header = () => {
 						</Link>
 					</nav>
 					<div className='flex md:gap-3 items-center'>
-						<Link
-							to='/login'
-							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
-							Login
-						</Link>
+						{user ? (
+							<DropdownMenu>
+								<DropdownMenuTrigger>
+									Profile
+								</DropdownMenuTrigger>
+								<DropdownMenuContent>
+									<DropdownMenuItem>
+										<Link to='/profile'>Profile</Link>
+									</DropdownMenuItem>
+									<DropdownMenuItem
+										onClick={logout}
+										className='cursor-pointer'>
+										Log Out
+									</DropdownMenuItem>
+								</DropdownMenuContent>
+							</DropdownMenu>
+						) : (
+							<Link
+								to='/login'
+								className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
+								Login
+							</Link>
+						)}
+
 						<Link to='/addproperty'>
 							<Button className='hidden md:inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors bg-prime hover:bg-prime/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'>
 								Add Property

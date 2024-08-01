@@ -9,11 +9,44 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
+import { api } from "@/api/api";
+import { toast } from "react-toastify";
+import { AuthContext } from "@/context/AuthContext";
 
 const Login = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
+	const { login } = useContext(AuthContext);
+
+	const handleLogin = async (e) => {
+		e.preventDefault();
+		try {
+			const data = {
+				email,
+				password,
+			};
+			const res = await axios.post(`${api}/user/login`, data, {
+				withCredentials: true,
+			});
+
+			if (res.data.success) {
+				toast.success(res.data.message);
+				login(res.data.user);
+				setTimeout(() => {
+					navigate("/");
+				}, 1000);
+			}
+		} catch (error) {
+			toast.error(error.response?.data?.message || "Login failed");
+			console.error(error);
+		}
+	};
+
 	return (
 		<>
 			<div className='flex min-h-[63dvh] flex-col items-center justify-center bg-background'>
@@ -62,7 +95,9 @@ const Login = () => {
 												</span>
 											</div>
 										</div>
-										<form className='space-y-4'>
+										<form
+											className='space-y-4'
+											onSubmit={handleLogin}>
 											<div className='space-y-2'>
 												<Label htmlFor='email'>
 													Email
@@ -72,6 +107,10 @@ const Login = () => {
 													type='email'
 													placeholder='Enter email'
 													required
+													value={email}
+													onChange={(e) =>
+														setEmail(e.target.value)
+													}
 												/>
 											</div>
 											<div className='space-y-2'>
@@ -83,6 +122,12 @@ const Login = () => {
 													type='password'
 													placeholder='Enter password'
 													required
+													value={password}
+													onChange={(e) =>
+														setPassword(
+															e.target.value
+														)
+													}
 												/>
 											</div>
 											<Button

@@ -9,11 +9,38 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
+import { api } from "@/api/api";
+import { toast } from "react-toastify";
 
 const Signup = () => {
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
+
+	const handleRegister = async () => {
+		e.preventDefault();
+		let data = {
+			name,
+			email,
+			password,
+		};
+		try {
+			const res = await axios.post(`${api}/user/register`, data);
+			setTimeout(() => {
+				if (res.data.success) {
+					toast.success(res.data.message);
+					navigate("/login");
+				}
+			}, 1000);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<>
 			<div className='flex min-h-[63dvh] flex-col items-center justify-center bg-background'>
@@ -62,7 +89,9 @@ const Signup = () => {
 												</span>
 											</div>
 										</div>
-										<form className='space-y-4'>
+										<form
+											className='space-y-4'
+											onSubmit={handleRegister}>
 											<div className='space-y-2'>
 												<Label htmlFor='name'>
 													Name
@@ -71,6 +100,10 @@ const Signup = () => {
 													id='name'
 													placeholder='Enter name'
 													required
+													value={name}
+													onChange={(e) =>
+														setName(e.target.value)
+													}
 												/>
 											</div>
 											<div className='space-y-2'>
@@ -82,6 +115,10 @@ const Signup = () => {
 													type='email'
 													placeholder='Enter email'
 													required
+													value={email}
+													onChange={(e) =>
+														setEmail(e.target.value)
+													}
 												/>
 											</div>
 											<div className='space-y-2'>
@@ -93,6 +130,12 @@ const Signup = () => {
 													type='password'
 													placeholder='Enter password'
 													required
+													value={password}
+													onChange={(e) =>
+														setPassword(
+															e.target.value
+														)
+													}
 												/>
 											</div>
 											<Button

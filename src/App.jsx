@@ -14,6 +14,8 @@ import PropertyDetails from "./pages/PropertyDetails";
 import BlogOverview from "./pages/BlogOverview";
 import AddProperty from "./pages/AddProperty";
 import Profile from "./pages/Profile";
+import ProtectedRoutes from "./routing/ProtectedRoutes";
+import OpenRoutes from "./routing/OpenRoutes";
 
 function App() {
 	return (
@@ -26,13 +28,45 @@ function App() {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/about' element={<About />} />
 						<Route path='/faq' element={<Faq />} />
-						<Route path='/profile' element={<Profile />} />
-						<Route path='/login' element={<Login />} />
-						<Route path='/signup' element={<Signup />} />
-						<Route path='/addproperty' element={<AddProperty />} />
+						<Route
+							path='/profile'
+							element={
+								<ProtectedRoutes>
+									<Profile />
+								</ProtectedRoutes>
+							}
+						/>
+						<Route
+							path='/login'
+							element={
+								<OpenRoutes>
+									<Login />
+								</OpenRoutes>
+							}
+						/>
+						<Route
+							path='/signup'
+							element={
+								<OpenRoutes>
+									<Signup />
+								</OpenRoutes>
+							}
+						/>
+						<Route
+							path='/addproperty'
+							element={
+								<ProtectedRoutes>
+									<AddProperty />
+								</ProtectedRoutes>
+							}
+						/>
 						<Route
 							path='/property/:id'
-							element={<PropertyDetails />}
+							element={
+								<ProtectedRoutes>
+									<PropertyDetails />
+								</ProtectedRoutes>
+							}
 						/>
 						<Route path='/blog/:id' element={<BlogOverview />} />
 						<Route

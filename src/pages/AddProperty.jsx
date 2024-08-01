@@ -78,7 +78,7 @@ const AddProperty = () => {
 						</p>
 						<img
 							src='/living.jpg'
-							className='w-full h-[600px] object-cover rounded-lg my-3'
+							className='w-full hidden md:inline-block h-[600px] object-cover rounded-lg my-3'
 							alt='Add property banner'
 						/>
 					</div>

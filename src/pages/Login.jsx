@@ -1,3 +1,10 @@
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
+import { api } from "@/api/api";
+import { toast } from "react-toastify";
+import { AuthContext } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import {
 	Card,
@@ -9,13 +16,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import axios from "axios";
-import { api } from "@/api/api";
-import { toast } from "react-toastify";
-import { AuthContext } from "@/context/AuthContext";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
@@ -26,10 +26,7 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const data = {
-				email,
-				password,
-			};
+			const data = { email, password };
 			const res = await axios.post(`${api}/user/login`, data, {
 				withCredentials: true,
 			});
@@ -45,6 +42,10 @@ const Login = () => {
 			toast.error(error.response?.data?.message || "Login failed");
 			console.error(error);
 		}
+	};
+
+	const handleGoogleLogin = () => {
+		window.location.href = `${api}/auth/google`;
 	};
 
 	return (
@@ -81,7 +82,8 @@ const Login = () => {
 									<div className='w-full max-w-md space-y-6'>
 										<Button
 											variant='outline'
-											className='w-full'>
+											className='w-full'
+											onClick={handleGoogleLogin}>
 											<FcGoogle className='mr-2 h-5 w-5' />
 											Log In with Gmail
 										</Button>
@@ -141,7 +143,7 @@ const Login = () => {
 							</CardContent>
 							<CardFooter>
 								<div className='text-center text-sm'>
-									Don&apos;t have an account?{" "}
+									Don't have an account?{" "}
 									<Link to='/signup' className='underline'>
 										Sign up
 									</Link>

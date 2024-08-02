@@ -1,3 +1,4 @@
+import { api } from "@/api/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,7 +10,9 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const AddProperty = () => {
 	const [formData, setFormData] = useState({
@@ -57,8 +60,29 @@ const AddProperty = () => {
 		}
 
 		try {
-			console.log(formData);
+			const res = await axios.post(
+				`${api}/properties/addproperty`,
+				formData,
+				{ withCredentials: true }
+			);
+			toast.success(res?.data?.message);
+			setFormData({
+				title: "",
+				description: "",
+				availability: "",
+				category: "",
+				rent: "",
+				area: "",
+				location: "",
+				services: "",
+				ownerName: "",
+				ownerContact: "",
+				thumbnail: null,
+				images: [],
+			});
+			console.log(res);
 		} catch (error) {
+			toast.error(error?.response?.data?.message);
 			console.error(error);
 		}
 	};
@@ -217,7 +241,7 @@ const AddProperty = () => {
 								</Label>
 								<Input
 									id='ownerContact'
-									type='tel'
+									type='number'
 									placeholder='Enter owner contact'
 									value={formData.ownerContact}
 									onChange={handleChange}

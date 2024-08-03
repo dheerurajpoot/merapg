@@ -15,6 +15,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const AddProperty = () => {
+	const [loading, setLoading] = useState(false);
 	const [formData, setFormData] = useState({
 		title: "",
 		description: "",
@@ -29,7 +30,6 @@ const AddProperty = () => {
 		thumbnail: null,
 		images: [],
 	});
-
 	const handleChange = (e) => {
 		const { id, value, type, files } = e.target;
 		if (type === "file") {
@@ -54,18 +54,24 @@ const AddProperty = () => {
 				for (let i = 0; i < formData.images.length; i++) {
 					data.append("images", formData.images[i]);
 				}
+			} else if (key === "thumbnail") {
+				if (formData.thumbnail.length > 0) {
+					data.append("thumbnail", formData.thumbnail[0]);
+				}
 			} else {
 				data.append(key, formData[key]);
 			}
 		}
 
 		try {
+			setLoading(true);
 			const res = await axios.post(
 				`${api}/properties/addproperty`,
-				formData,
+				data,
 				{ withCredentials: true }
 			);
 			toast.success(res?.data?.message);
+			setLoading(false);
 			setFormData({
 				title: "",
 				description: "",
@@ -80,8 +86,8 @@ const AddProperty = () => {
 				thumbnail: null,
 				images: [],
 			});
-			console.log(res);
 		} catch (error) {
+			setLoading(false);
 			toast.error(error?.response?.data?.message);
 			console.error(error);
 		}
@@ -192,10 +198,10 @@ const AddProperty = () => {
 								/>
 							</div>
 							<div className='grid gap-2'>
-								<Label htmlFor='area'>Area (sq ft)</Label>
+								<Label htmlFor='area'>Area (ft x ft)</Label>
 								<Input
 									id='area'
-									type='number'
+									type='text'
 									placeholder='Enter area'
 									value={formData.area}
 									onChange={handleChange}
@@ -268,7 +274,7 @@ const AddProperty = () => {
 						<Button
 							type='submit'
 							className='w-full bg-prime hover:bg-prime/90'>
-							Add Property
+							{loading ? "Processing" : "Add Property"}
 						</Button>
 					</form>
 				</div>

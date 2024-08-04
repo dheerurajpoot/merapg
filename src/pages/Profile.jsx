@@ -8,7 +8,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaCamera } from "react-icons/fa6";
 import { IoKeyOutline } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -16,9 +16,90 @@ import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { AuthContext } from "@/context/AuthContext";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { api } from "@/api/api";
 
 const Profile = () => {
-	const { user } = useContext(AuthContext);
+	const fileInputRef = useRef(null);
+	const [user, setUser] = useState({});
+	const [loading, setLoading] = useState(false);
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		profilePic: null,
+	});
+
+	const getUserProfile = async () => {
+		try {
+			const res = await axios.get(`${api}/user/profile`, {
+				withCredentials: true,
+			});
+			if (res.data.success) {
+				setUser(res.data.user);
+				setFormData({
+					name: res.data.user.name,
+					email: res.data.user.email,
+					profilePic: null,
+				});
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		getUserProfile();
+	}, []);
+
+	const handleChange = (e) => {
+		const { id, value, type, files } = e.target;
+		if (type === "file") {
+			setFormData({
+				...formData,
+				[id]: files,
+			});
+		} else {
+			setFormData({
+				...formData,
+				[id]: value,
+			});
+		}
+	};
+
+	const handleUpdatePhotoClick = () => {
+		fileInputRef.current.click();
+	};
+
+	const updateProfile = async () => {
+		const data = new FormData();
+		for (const key in formData) {
+			if (key === "profilePic") {
+				if (formData.profilePic && formData.profilePic.length > 0) {
+					data.append("profilePic", formData.profilePic[0]);
+				}
+			} else {
+				data.append(key, formData[key]);
+			}
+		}
+
+		try {
+			setLoading(true);
+			const res = await axios.put(`${api}/user/updateprofile`, data, {
+				withCredentials: true,
+			});
+			if (res?.data?.success) {
+				toast.success(res?.data?.message);
+				getUserProfile();
+			}
+			setLoading(false);
+		} catch (error) {
+			console.log(error);
+			setLoading(false);
+			toast.error(error.response?.data?.message);
+		}
+	};
+
 	return (
 		<>
 			<div className='max-w-4xl mx-auto p-6 sm:p-8 md:p-10'>
@@ -37,10 +118,20 @@ const Profile = () => {
 							</div>
 						</div>
 						<div className='flex gap-2'>
-							<Button variant='outline' size='sm'>
+							<Button
+								variant='outline'
+								size='sm'
+								onClick={handleUpdatePhotoClick}>
 								<FaCamera className='w-4 h-4 mr-2' />
 								Update Photo
 							</Button>
+							<input
+								type='file'
+								id='profilePic'
+								ref={fileInputRef}
+								style={{ display: "none" }}
+								onChange={handleChange}
+							/>
 							<Button variant='outline' size='sm'>
 								<IoKeyOutline className='w-4 h-4 mr-2' />
 								Reset Password
@@ -48,10 +139,11 @@ const Profile = () => {
 						</div>
 						<div className='mt-6 space-y-4'>
 							<div>
-								<Label htmlFor='username'>Name</Label>
+								<Label htmlFor='name'>Name</Label>
 								<Input
-									id='username'
-									defaultValue='Dheeru Rajpoot'
+									id='name'
+									value={formData.name}
+									onChange={handleChange}
 								/>
 							</div>
 							<div>
@@ -59,10 +151,15 @@ const Profile = () => {
 								<Input
 									id='email'
 									type='email'
-									defaultValue='contact@merapg.com'
+									value={formData.email}
+									onChange={handleChange}
 								/>
 							</div>
-							<Button className='bg-prime'>Update Profile</Button>
+							<Button
+								onClick={updateProfile}
+								className='bg-prime'>
+								{loading ? "Updating..." : "Update Profile"}
+							</Button>
 						</div>
 					</div>
 					<div className='flex-1'>

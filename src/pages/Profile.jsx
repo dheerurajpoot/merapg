@@ -8,14 +8,13 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaCamera } from "react-icons/fa6";
 import { IoKeyOutline } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { AuthContext } from "@/context/AuthContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { api } from "@/api/api";
@@ -29,6 +28,7 @@ const Profile = () => {
 		email: "",
 		profilePic: null,
 	});
+	const [preview, setPreview] = useState(null);
 
 	const getUserProfile = async () => {
 		try {
@@ -59,6 +59,15 @@ const Profile = () => {
 				...formData,
 				[id]: files,
 			});
+			// Preview the selected image
+			const file = files[0];
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				setPreview(reader.result);
+			};
+			if (file) {
+				reader.readAsDataURL(file);
+			}
 		} else {
 			setFormData({
 				...formData,
@@ -91,6 +100,7 @@ const Profile = () => {
 			if (res?.data?.success) {
 				toast.success(res?.data?.message);
 				getUserProfile();
+				setPreview(null);
 			}
 			setLoading(false);
 		} catch (error) {
@@ -106,7 +116,10 @@ const Profile = () => {
 				<div className='flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10'>
 					<div className='flex flex-col items-center gap-4 rounded-lg shadow-md p-6'>
 						<Avatar className='w-24 h-24 border-2 border-primary'>
-							<AvatarImage src={user?.profilePic} />
+							<AvatarImage
+								src={preview || user?.profilePic}
+								className='object-cover'
+							/>
 							<AvatarFallback>DR</AvatarFallback>
 						</Avatar>
 						<div className='grid gap-1 text-center'>
@@ -157,8 +170,10 @@ const Profile = () => {
 							</div>
 							<Button
 								onClick={updateProfile}
-								className='bg-prime'>
-								{loading ? "Updating..." : "Update Profile"}
+								className='bg-prime hover:bg-prime/80'>
+								{loading
+									? "Profile Updating..."
+									: "Update Profile"}
 							</Button>
 						</div>
 					</div>
@@ -205,9 +220,9 @@ const Profile = () => {
 										<CardFooter>
 											<div className='flex justify-end gap-2'>
 												<Button
-													variant='outline'
+													className='bg-prime hover:bg-prime/80'
 													size='sm'>
-													Edit
+													Booked
 												</Button>
 												<Button
 													variant='destructive'
@@ -251,9 +266,9 @@ const Profile = () => {
 										<CardFooter>
 											<div className='flex justify-end gap-2'>
 												<Button
-													variant='outline'
+													className='bg-prime hover:bg-prime/80'
 													size='sm'>
-													Edit
+													Booked
 												</Button>
 												<Button
 													variant='destructive'

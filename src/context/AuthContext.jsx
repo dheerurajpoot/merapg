@@ -1,13 +1,13 @@
 import { api } from "@/api/api";
 import axios from "axios";
 import React, { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
+	const [profile, setProfile] = useState(null);
 
 	useEffect(() => {
 		const storedUser = localStorage.getItem("user");
@@ -20,6 +20,23 @@ export const AuthProvider = ({ children }) => {
 		setUser(userData);
 		localStorage.setItem("user", JSON.stringify(userData));
 	};
+
+	const getUserProfile = async () => {
+		try {
+			const res = await axios.get(`${api}/user/profile`, {
+				withCredentials: true,
+			});
+			if (res.data.success) {
+				setProfile(res.data.user);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		getUserProfile();
+	}, []);
 
 	const logout = async () => {
 		setUser(null);
@@ -36,7 +53,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	return (
-		<AuthContext.Provider value={{ user, login, logout }}>
+		<AuthContext.Provider value={{ user, profile, login, logout }}>
 			{children}
 		</AuthContext.Provider>
 	);

@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
 		if (storedUser) {
 			setUser(JSON.parse(storedUser));
 		}
+		getUserProfile();
 	}, []);
 
 	const login = (userData) => {
@@ -33,10 +34,6 @@ export const AuthProvider = ({ children }) => {
 			console.log(error);
 		}
 	};
-
-	useEffect(() => {
-		getUserProfile();
-	}, []);
 
 	const logout = async () => {
 		setUser(null);

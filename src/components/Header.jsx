@@ -15,7 +15,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Header = () => {
 	const { user, profile, logout } = useContext(AuthContext);
-
 	return (
 		<>
 			<header className='container mx-auto w-full top-0 z-50 h-20 bg-[#fff] transition-all duration-300'>

@@ -104,13 +104,13 @@ const roomsData = [
 	},
 ];
 
-export default function Properties() {
+export default function Properties(data) {
 	const [properties, setProperties] = useState(roomsData);
 	const [filters, setFilters] = useState({
 		budget: 0,
 		propertyType: "All",
 	});
-
+	console.log(data);
 	const handleFilterChange = (key, value) => {
 		setFilters((prevFilters) => ({
 			...prevFilters,

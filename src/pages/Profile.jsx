@@ -29,6 +29,7 @@ const Profile = () => {
 		profilePic: null,
 	});
 	const [preview, setPreview] = useState(null);
+	const [properties, setProperties] = useState([]);
 
 	const getUserProfile = async () => {
 		try {
@@ -110,6 +111,30 @@ const Profile = () => {
 		}
 	};
 
+	// get user property
+	const userId = user?._id;
+	const getUserProperty = async () => {
+		try {
+			if (!userId) return;
+			const res = await axios.post(
+				`${api}/properties/userprop`,
+				{ userId },
+				{
+					withCredentials: true,
+				}
+			);
+			if (res.data.success) {
+				setProperties(res?.data?.properties);
+			}
+		} catch (error) {
+			console.log(error);
+			toast.error(error.response.data.message);
+		}
+	};
+	useEffect(() => {
+		getUserProperty();
+	}, [userId]);
+
 	return (
 		<>
 			<div className='max-w-4xl mx-auto p-6 sm:p-8 md:p-10'>
@@ -185,99 +210,70 @@ const Profile = () => {
 								</h2>
 								<Separator className='my-4' />
 								<div className='grid gap-4'>
-									<Card>
-										<CardHeader>
-											<CardTitle>
-												Cozy Studio Apartment
-											</CardTitle>
-											<CardDescription>
-												<span className='flex items-center gap-2'>
-													<FaMapMarkerAlt className='w-4 h-4' />
-													<span>
-														Bangalore, India
+									{properties.map((property, index) => (
+										<Card key={index}>
+											<CardHeader>
+												<CardTitle>
+													{property?.title}
+												</CardTitle>
+												<CardDescription>
+													<span className='flex items-center gap-2'>
+														<FaMapMarkerAlt className='w-4 h-4' />
+														<span>
+															{property?.location}
+														</span>
 													</span>
-												</span>
-											</CardDescription>
-										</CardHeader>
-										<CardContent>
-											<div className='grid gap-2'>
-												<div className='flex items-center justify-between'>
-													<span>Rent</span>
-													<span>₹12,000/month</span>
+												</CardDescription>
+											</CardHeader>
+											<CardContent>
+												<div className='grid gap-2'>
+													<div className='flex items-center justify-between'>
+														<span>Rent</span>
+														<span>
+															₹{property?.rent}
+															/month
+														</span>
+													</div>
+													<div className='flex items-center justify-between'>
+														<span>
+															Availability
+														</span>
+														<span>
+															{
+																property?.availability
+															}
+														</span>
+													</div>
+													<div className='flex items-center justify-between'>
+														<span>Services</span>
+														<span>
+															{property?.services}
+														</span>
+													</div>
+													<div className='flex items-center justify-between'>
+														<span>Category</span>
+														<span>
+															{property?.category}
+														</span>
+													</div>
 												</div>
-												<div className='flex items-center justify-between'>
-													<span>Occupancy</span>
-													<span>1-2 persons</span>
+											</CardContent>
+											<CardFooter>
+												<div className='flex justify-end gap-2'>
+													<Button
+														className='bg-prime hover:bg-prime/80'
+														size='sm'>
+														Booked
+													</Button>
+													<Button
+														variant='destructive'
+														size='sm'>
+														Delete
+													</Button>
 												</div>
-												<div className='flex items-center justify-between'>
-													<span>Amenities</span>
-													<span>
-														Wifi, AC, Kitchenette
-													</span>
-												</div>
-											</div>
-										</CardContent>
-										<CardFooter>
-											<div className='flex justify-end gap-2'>
-												<Button
-													className='bg-prime hover:bg-prime/80'
-													size='sm'>
-													Booked
-												</Button>
-												<Button
-													variant='destructive'
-													size='sm'>
-													Delete
-												</Button>
-											</div>
-										</CardFooter>
-									</Card>
-									<Card>
-										<CardHeader>
-											<CardTitle>
-												Spacious 2BHK Apartment
-											</CardTitle>
-											<CardDescription>
-												<span className='flex items-center gap-2'>
-													<FaMapMarkerAlt className='w-4 h-4' />
-													<span>Mumbai, India</span>
-												</span>
-											</CardDescription>
-										</CardHeader>
-										<CardContent>
-											<div className='grid gap-2'>
-												<div className='flex items-center justify-between'>
-													<span>Rent</span>
-													<span>₹25,000/month</span>
-												</div>
-												<div className='flex items-center justify-between'>
-													<span>Occupancy</span>
-													<span>2-4 persons</span>
-												</div>
-												<div className='flex items-center justify-between'>
-													<span>Amenities</span>
-													<span>
-														Wifi, AC, Balcony,
-														Parking
-													</span>
-												</div>
-											</div>
-										</CardContent>
-										<CardFooter>
-											<div className='flex justify-end gap-2'>
-												<Button
-													className='bg-prime hover:bg-prime/80'
-													size='sm'>
-													Booked
-												</Button>
-												<Button
-													variant='destructive'
-													size='sm'>
-													Delete
-												</Button>
-											</div>
-										</CardFooter>
-									</Card>
+											</CardFooter>
+										</Card>
+									))}
 								</div>
 							</div>
 						</div>

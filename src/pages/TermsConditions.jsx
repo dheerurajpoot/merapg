@@ -3,7 +3,7 @@ import React from "react";
 const TermsConditions = () => {
 	return (
 		<>
-			<div className='container max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8'>
+			<div className='container mt-20 mx-auto px-4 py-12 sm:px-6 lg:px-8'>
 				<h1 className='text-3xl font-bold mb-8'>Terms of Service</h1>
 				<div className='space-y-8'>
 					<div>

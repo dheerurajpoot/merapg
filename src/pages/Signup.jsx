@@ -43,7 +43,7 @@ const Signup = () => {
 	};
 	return (
 		<>
-			<div className='flex min-h-[63dvh] flex-col items-center justify-center bg-background'>
+			<div className='flex min-h-[63dvh] mt-20 flex-col items-center justify-center bg-background'>
 				<div className='container mx-auto px-4 py-12 md:px-6 lg:py-24'>
 					<div className='grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16'>
 						<div className='flex flex-col items-center justify-center space-y-4 text-center md:items-start md:text-left'>

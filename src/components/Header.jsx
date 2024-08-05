@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
@@ -15,10 +15,34 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Header = () => {
 	const { user, profile, logout } = useContext(AuthContext);
+	const [isScrolled, setIsScrolled] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 0) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 	return (
 		<>
-			<header className='container mx-auto w-full top-0 z-50 h-20 bg-[#fff] transition-all duration-300'>
-				<div className='container flex h-full items-center justify-between px-2 md:px-6'>
+			<header
+				className={`${
+					isScrolled ? "md:fixed top-0" : "md:absolute md:top-8"
+				} fixed w-full z-50 h-20  transition-all duration-300`}>
+				<div
+					className={`${
+						isScrolled
+							? "w-full transition-all duration-300"
+							: "container"
+					} mx-auto flex h-full items-center bg-[#fff] justify-between px-2 md:px-6`}>
 					<Link to='/' className='flex items-center gap-2'>
 						<FaLaptopHouse className='h-8 w-8 text-prime' />
 						<span className='text-3xl text-prime font-bold'>

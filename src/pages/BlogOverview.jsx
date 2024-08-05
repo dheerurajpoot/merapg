@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const BlogOverview = () => {
 	return (
 		<>
-			<div className='w-full max-w-6xl mx-auto py-12 md:py-20'>
+			<div className='w-full container mt-20 mx-auto py-12 md:py-20'>
 				<article className='grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8'>
 					<div>
 						<div className='prose prose-gray max-w-none px-6 dark:prose-invert'>

@@ -137,149 +137,162 @@ const Profile = () => {
 
 	return (
 		<>
-			<div className='max-w-4xl mx-auto p-6 sm:p-8 md:p-10'>
-				<div className='flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10'>
-					<div className='flex flex-col items-center gap-4 rounded-lg shadow-md p-6'>
-						<Avatar className='w-24 h-24 border-2 border-primary'>
-							<AvatarImage
-								src={preview || user?.profilePic}
-								className='object-cover'
-							/>
-							<AvatarFallback>DR</AvatarFallback>
-						</Avatar>
-						<div className='grid gap-1 text-center'>
-							<div className='text-xl font-semibold'>
-								{user?.name}
+			<section className='w-full py-12 mt-8 md:py-16 lg:py-20'>
+				<div className='container mx-auto p-6 sm:p-8 md:p-10'>
+					<div className='flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10'>
+						<div className='flex flex-col items-center gap-4 rounded-lg shadow-md p-6'>
+							<Avatar className='w-24 h-24 border-2 border-primary'>
+								<AvatarImage
+									src={preview || user?.profilePic}
+									className='object-cover'
+								/>
+								<AvatarFallback>DR</AvatarFallback>
+							</Avatar>
+							<div className='grid gap-1 text-center'>
+								<div className='text-xl font-semibold'>
+									{user?.name}
+								</div>
+								<div className='text-muted-foreground'>
+									{user?.email}
+								</div>
 							</div>
-							<div className='text-muted-foreground'>
-								{user?.email}
-							</div>
-						</div>
-						<div className='flex gap-2'>
-							<Button
-								variant='outline'
-								size='sm'
-								onClick={handleUpdatePhotoClick}>
-								<FaCamera className='w-4 h-4 mr-2' />
-								Update Photo
-							</Button>
-							<input
-								type='file'
-								id='profilePic'
-								ref={fileInputRef}
-								style={{ display: "none" }}
-								onChange={handleChange}
-							/>
-							<Button variant='outline' size='sm'>
-								<IoKeyOutline className='w-4 h-4 mr-2' />
-								Reset Password
-							</Button>
-						</div>
-						<div className='mt-6 space-y-4'>
-							<div>
-								<Label htmlFor='name'>Name</Label>
-								<Input
-									id='name'
-									value={formData.name}
+							<div className='flex gap-2'>
+								<Button
+									variant='outline'
+									size='sm'
+									onClick={handleUpdatePhotoClick}>
+									<FaCamera className='w-4 h-4 mr-2' />
+									Update Photo
+								</Button>
+								<input
+									type='file'
+									id='profilePic'
+									ref={fileInputRef}
+									style={{ display: "none" }}
 									onChange={handleChange}
 								/>
+								<Button variant='outline' size='sm'>
+									<IoKeyOutline className='w-4 h-4 mr-2' />
+									Reset Password
+								</Button>
 							</div>
-							<div>
-								<Label htmlFor='email'>Email</Label>
-								<Input
-									id='email'
-									type='email'
-									value={formData.email}
-									onChange={handleChange}
-								/>
+							<div className='mt-6 space-y-4'>
+								<div>
+									<Label htmlFor='name'>Name</Label>
+									<Input
+										id='name'
+										value={formData.name}
+										onChange={handleChange}
+									/>
+								</div>
+								<div>
+									<Label htmlFor='email'>Email</Label>
+									<Input
+										id='email'
+										type='email'
+										value={formData.email}
+										onChange={handleChange}
+									/>
+								</div>
+								<Button
+									onClick={updateProfile}
+									className='bg-prime hover:bg-prime/80'>
+									{loading
+										? "Profile Updating..."
+										: "Update Profile"}
+								</Button>
 							</div>
-							<Button
-								onClick={updateProfile}
-								className='bg-prime hover:bg-prime/80'>
-								{loading
-									? "Profile Updating..."
-									: "Update Profile"}
-							</Button>
 						</div>
-					</div>
-					<div className='flex-1'>
-						<div className='grid gap-6'>
-							<div>
-								<h2 className='text-2xl font-semibold'>
-									Your PG Listings
-								</h2>
-								<Separator className='my-4' />
-								<div className='grid gap-4'>
-									{properties.map((property, index) => (
-										<Card key={index}>
-											<CardHeader>
-												<CardTitle>
-													{property?.title}
-												</CardTitle>
-												<CardDescription>
-													<span className='flex items-center gap-2'>
-														<FaMapMarkerAlt className='w-4 h-4' />
-														<span>
-															{property?.location}
+						<div className='flex-1'>
+							<div className='grid gap-6'>
+								<div>
+									<h2 className='text-2xl font-semibold'>
+										Your PG Listings
+									</h2>
+									<Separator className='my-4' />
+									<div className='grid gap-4'>
+										{properties.map((property, index) => (
+											<Card key={index}>
+												<CardHeader>
+													<CardTitle>
+														{property?.title}
+													</CardTitle>
+													<CardDescription>
+														<span className='flex items-center gap-2'>
+															<FaMapMarkerAlt className='w-4 h-4' />
+															<span>
+																{
+																	property?.location
+																}
+															</span>
 														</span>
-													</span>
-												</CardDescription>
-											</CardHeader>
-											<CardContent>
-												<div className='grid gap-2'>
-													<div className='flex items-center justify-between'>
-														<span>Rent</span>
-														<span>
-															₹{property?.rent}
-															/month
-														</span>
+													</CardDescription>
+												</CardHeader>
+												<CardContent>
+													<div className='grid gap-2'>
+														<div className='flex items-center justify-between'>
+															<span>Rent</span>
+															<span>
+																₹
+																{property?.rent}
+																/month
+															</span>
+														</div>
+														<div className='flex items-center justify-between'>
+															<span>
+																Availability
+															</span>
+															<span>
+																{
+																	property?.availability
+																}
+															</span>
+														</div>
+														<div className='flex items-center justify-between'>
+															<span>
+																Services
+															</span>
+															<span>
+																{
+																	property?.services
+																}
+															</span>
+														</div>
+														<div className='flex items-center justify-between'>
+															<span>
+																Category
+															</span>
+															<span>
+																{
+																	property?.category
+																}
+															</span>
+														</div>
 													</div>
-													<div className='flex items-center justify-between'>
-														<span>
-															Availability
-														</span>
-														<span>
-															{
-																property?.availability
-															}
-														</span>
+												</CardContent>
+												<CardFooter>
+													<div className='flex justify-end gap-2'>
+														<Button
+															className='bg-prime hover:bg-prime/80'
+															size='sm'>
+															Booked
+														</Button>
+														<Button
+															variant='destructive'
+															size='sm'>
+															Delete
+														</Button>
 													</div>
-													<div className='flex items-center justify-between'>
-														<span>Services</span>
-														<span>
-															{property?.services}
-														</span>
-													</div>
-													<div className='flex items-center justify-between'>
-														<span>Category</span>
-														<span>
-															{property?.category}
-														</span>
-													</div>
-												</div>
-											</CardContent>
-											<CardFooter>
-												<div className='flex justify-end gap-2'>
-													<Button
-														className='bg-prime hover:bg-prime/80'
-														size='sm'>
-														Booked
-													</Button>
-													<Button
-														variant='destructive'
-														size='sm'>
-														Delete
-													</Button>
-												</div>
-											</CardFooter>
-										</Card>
-									))}
+												</CardFooter>
+											</Card>
+										))}
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</>
 	);
 };

@@ -7,7 +7,7 @@ const Blogs = () => {
 	return (
 		<>
 			<div className='w-full'>
-				<section className='bg-primary text-primary-foreground py-12 md:py-20'>
+				<section className='bg-primary text-primary-foreground py-24 md:py-36'>
 					<div className='container mx-auto px-4 md:px-6 max-w-4xl text-center'>
 						<h1 className='text-3xl md:text-5xl font-bold mb-4'>
 							Discover the Latest in Room and PG Rentals

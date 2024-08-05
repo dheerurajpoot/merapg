@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const About = () => {
 	return (
 		<>
-			<hr />
-			<div className='flex flex-col min-h-[100dvh]'>
+			<div className='flex flex-col mt-20 min-h-[100dvh]'>
 				<main className='flex-1'>
 					<section className='w-full py-10 md:py-20 lg:py-24'>
 						<div className='container px-4 md:px-6'>

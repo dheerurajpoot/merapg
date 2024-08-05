@@ -21,10 +21,9 @@ const Home = () => {
 			toast.error(error.response?.data?.message);
 		}
 	};
-
 	useEffect(() => {
 		getProperties();
-	}, [city]);
+	}, []);
 
 	return (
 		<>

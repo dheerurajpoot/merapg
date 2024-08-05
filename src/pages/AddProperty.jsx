@@ -176,11 +176,20 @@ const AddProperty = () => {
 											Room
 										</SelectItem>
 										<SelectItem value='pg'>PG</SelectItem>
-										<SelectItem value='apartment'>
-											Apartment
+										<SelectItem value='flat'>
+											Flat
 										</SelectItem>
 										<SelectItem value='house'>
 											House
+										</SelectItem>
+										<SelectItem value='shared'>
+											Shared
+										</SelectItem>
+										<SelectItem value='shop'>
+											Shop
+										</SelectItem>
+										<SelectItem value='other'>
+											Other
 										</SelectItem>
 									</SelectContent>
 								</Select>

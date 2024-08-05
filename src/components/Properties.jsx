@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
@@ -105,12 +105,18 @@ const roomsData = [
 ];
 
 export default function Properties(data) {
-	const [properties, setProperties] = useState(roomsData);
+	const [properties, setProperties] = useState([]);
 	const [filters, setFilters] = useState({
 		budget: 0,
 		propertyType: "All",
 	});
-	console.log(data);
+
+	useEffect(() => {
+		if (data.data) {
+			setProperties(data?.data);
+		}
+	}, [data]);
+
 	const handleFilterChange = (key, value) => {
 		setFilters((prevFilters) => ({
 			...prevFilters,
@@ -119,17 +125,13 @@ export default function Properties(data) {
 	};
 
 	const filteredProperties = useMemo(() => {
-		return properties.filter((property) => {
-			const rentValue = parseInt(
-				property.rent.replace(/[^0-9]/g, ""),
-				10
-			);
-			if (filters.budget > 0 && rentValue > filters.budget) {
+		return properties?.filter((property) => {
+			if (filters?.budget > 0 && property?.rent > filters?.budget) {
 				return false;
 			}
 			if (
 				filters.propertyType !== "All" &&
-				property.category !== filters.propertyType
+				property.category !== filters?.propertyType
 			) {
 				return false;
 			}
@@ -187,73 +189,81 @@ export default function Properties(data) {
 							</SelectTrigger>
 							<SelectContent>
 								<SelectItem value='All'>All</SelectItem>
-								<SelectItem value='Apartment'>
-									Apartment
-								</SelectItem>
-								<SelectItem value='Flat'>Flat</SelectItem>
-								<SelectItem value='PG'>PG</SelectItem>
-								<SelectItem value='Studio'>Studio</SelectItem>
+								<SelectItem value='room'>Room</SelectItem>
+								<SelectItem value='pg'>PG</SelectItem>
+								<SelectItem value='flat'>Flat</SelectItem>
+								<SelectItem value='house'>House</SelectItem>
+								<SelectItem value='shared'>Shared</SelectItem>
+								<SelectItem value='shop'>Shop</SelectItem>
+								<SelectItem value='other'>Other</SelectItem>
 							</SelectContent>
 						</Select>
 					</div>
 				</div>
-				<div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-					{filteredProperties.map((room, index) => (
-						<div
-							key={index}
-							className='group relative overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-xl'>
-							<Link
-								to={`/property/${room._id}`}
-								className='absolute inset-0 z-10'>
-								<span className='sr-only'>View Room</span>
-							</Link>
-							<img
-								src={room.image}
-								alt={room.title}
-								width={600}
-								height={400}
-								className='h-48 w-full object-cover transition-all group-hover:scale-105'
-							/>
-							<div className='space-y-2 p-4'>
-								<h3 className='text-lg font-semibold'>
-									{room.title}
-								</h3>
-								<div className='flex items-center gap-1'>
-									<FaMapMarkerAlt className='text-prime' />
-									<p className='text-sm'>{room.location}</p>
-								</div>
-								<div className='flex items-center justify-between'>
-									<div className='text-sm text-muted-foreground'>
-										<span className='font-medium'>
-											Category:
-										</span>{" "}
-										{room.category}
+				<hr />
+				{filteredProperties.length === 0 ? (
+					<p className='text-center'>No properties found!</p>
+				) : (
+					<div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+						{filteredProperties.map((room, index) => (
+							<div
+								key={index}
+								className='group relative overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-xl'>
+								<Link
+									to={`/property/${room._id}`}
+									className='absolute inset-0 z-10'>
+									<span className='sr-only'>View Room</span>
+								</Link>
+								<img
+									src={room?.thumbnail}
+									alt={room?.title}
+									width={600}
+									height={400}
+									className='h-48 w-full object-cover transition-all group-hover:scale-105'
+								/>
+								<div className='space-y-2 p-4'>
+									<h3 className='text-lg font-semibold'>
+										{room.title}
+									</h3>
+									<div className='flex items-center gap-1'>
+										<FaMapMarkerAlt className='text-prime' />
+										<p className='text-sm'>
+											{room.location}
+										</p>
 									</div>
-									<div className='text-sm text-muted-foreground'>
-										<span className='font-medium'>
-											Area:
-										</span>{" "}
-										{room.area}
+									<div className='flex items-center justify-between'>
+										<div className='text-sm text-muted-foreground'>
+											<span className='font-medium'>
+												Category:
+											</span>{" "}
+											{room.category}
+										</div>
+										<div className='text-sm text-muted-foreground'>
+											<span className='font-medium'>
+												Area:
+											</span>{" "}
+											{room.area} Ft
+										</div>
 									</div>
-								</div>
-								<div className='flex items-center justify-between'>
-									<div className='text-sm text-muted-foreground'>
-										<span className='font-medium'>
-											Rent:
-										</span>{" "}
-										{room.rent}
-									</div>
-									<div className='text-sm text-muted-foreground'>
-										<span className='font-medium'>
-											Availability:
-										</span>{" "}
-										{room.availability}
+									<div className='flex items-center justify-between'>
+										<div className='text-sm text-muted-foreground'>
+											<span className='font-medium'>
+												Rent:
+											</span>{" "}
+											{room.rent}
+										</div>
+										<div className='text-sm text-muted-foreground'>
+											<span className='font-medium'>
+												Availability:
+											</span>{" "}
+											{room.availability}
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					))}
-				</div>
+						))}
+					</div>
+				)}
 			</div>
 		</section>
 	);

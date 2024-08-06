@@ -201,9 +201,9 @@ const About = () => {
 											</div>
 											<p className='text-sm text-muted-foreground'>
 												"MeraPG made my PG search so
-												much easier. The platform\n is
+												much easier. The platform is
 												user-friendly, and I was able to
-												find a great PG\n that fits my
+												find a great PG that fits my
 												budget and needs."
 											</p>
 										</div>
@@ -226,9 +226,9 @@ const About = () => {
 											</div>
 											<p className='text-sm text-muted-foreground'>
 												"As a PG owner, I've had a great
-												experience with\n MeraPG. The
+												experience with MeraPG. The
 												platform has helped me reach a
-												wider\n audience and manage my
+												wider audience and manage my
 												listings efficiently."
 											</p>
 										</div>
@@ -279,21 +279,20 @@ const About = () => {
 														Dheeru Rajpoot
 													</p>
 													<p className='text-xs text-muted-foreground'>
-														Co-founder, CEO
+														Founder, CEO
 													</p>
 												</div>
 											</div>
 											<p className='text-sm text-muted-foreground'>
 												"Our goal is to make the PG and
-												room rental process\n seamless
-												and accessible for everyone.
-												We're committed\n to empowering
-												both tenants and PG owners
-												through our\n innovative
-												platform."
+												room rental process seamless and
+												accessible for everyone. We're
+												committed to empowering both
+												tenants and PG owners through
+												our innovative platform."
 											</p>
 										</div>
-										<div className='grid gap-2 rounded-lg bg-background p-4'>
+										{/* <div className='grid gap-2 rounded-lg bg-background p-4'>
 											<div className='flex items-center gap-2'>
 												<Avatar>
 													<AvatarImage src='/placeholder-user.jpg' />
@@ -319,7 +318,7 @@ const About = () => {
 												that caters to\n all your rental
 												needs."
 											</p>
-										</div>
+										</div> */}
 									</div>
 								</div>
 								<img

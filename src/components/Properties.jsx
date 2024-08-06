@@ -1,43 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "./ui/select";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Properties(data) {
 	const [properties, setProperties] = useState([]);
-	const [filters, setFilters] = useState({
-		budget: 0,
-	});
 
 	useEffect(() => {
 		if (data.data) {
 			setProperties(data?.data);
 		}
 	}, [data]);
-
-	const handleFilterChange = (key, value) => {
-		setFilters((prevFilters) => ({
-			...prevFilters,
-			[key]: value,
-		}));
-	};
-
-	const filteredProperties = useMemo(() => {
-		return properties?.filter((property) => {
-			if (filters?.budget > 0 && property?.rent > filters?.budget) {
-				return false;
-			}
-			return true;
-		});
-	}, [properties, filters]);
 
 	return (
 		<section className='w-full py-8 md:py-12 lg:py-16'>
@@ -54,33 +26,13 @@ export default function Properties(data) {
 						</p>
 					</div>
 				</div>
-				<div className='flex md:justify-end justify-center items-end md:items-center gap-4 mb-3'>
-					<div className='flex items-center'>
-						<Label
-							htmlFor='budget'
-							className='text-sm w-full font-medium'>
-							Filter by Budget
-						</Label>
-						<Input
-							id='budget'
-							type='number'
-							placeholder='Enter budget'
-							value={filters.budget}
-							onChange={(e) =>
-								handleFilterChange(
-									"budget",
-									parseInt(e.target.value, 10)
-								)
-							}
-						/>
-					</div>
-				</div>
-				<hr />
-				{filteredProperties.length === 0 ? (
-					<p className='text-center'>No properties found!</p>
+				{properties.length === 0 ? (
+					<p className='text-center text-lg font-semibold text-prime'>
+						No properties found!
+					</p>
 				) : (
 					<div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-						{filteredProperties.map((room, index) => (
+						{properties.map((room, index) => (
 							<div
 								key={index}
 								className='group relative overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-xl'>

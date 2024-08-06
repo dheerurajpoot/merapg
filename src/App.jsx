@@ -16,6 +16,7 @@ import AddProperty from "./pages/AddProperty";
 import Profile from "./pages/Profile";
 import ProtectedRoutes from "./routing/ProtectedRoutes";
 import OpenRoutes from "./routing/OpenRoutes";
+import FindPG from "./pages/FindPG";
 
 function App() {
 	return (
@@ -28,6 +29,7 @@ function App() {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/about' element={<About />} />
 						<Route path='/faq' element={<Faq />} />
+						<Route path='/findpg' element={<FindPG />} />
 						<Route
 							path='/profile'
 							element={

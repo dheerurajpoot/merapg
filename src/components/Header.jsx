@@ -41,11 +41,12 @@ const Header = () => {
 					className={`${
 						isScrolled ? "w-full 2xl:justify-around " : "container"
 					} mx-auto flex h-full items-center bg-[#fff] justify-between px-2 md:px-6 shadow-lg shadow-prime/50 transition-all duration-500`}>
-					<Link to='/' className='flex items-center gap-2'>
-						<FaLaptopHouse className='h-8 w-8 text-prime' />
-						<span className='text-3xl text-prime font-bold'>
-							MeraPG
-						</span>
+					<Link to='/'>
+						<img
+							className='w-36'
+							src='./merapglogo.png'
+							alt='MERAPG'
+						/>
 					</Link>
 					<nav className='hidden items-center gap-6 md:flex'>
 						<Link
@@ -54,7 +55,7 @@ const Header = () => {
 							Home
 						</Link>
 						<Link
-							to='#'
+							to='/findpg'
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
 							Find PG
 						</Link>
@@ -138,13 +139,12 @@ const Header = () => {
 								side='left'
 								className='w-[80vw] md:hidden'>
 								<SheetTitle className=''>
-									<Link
-										to='/'
-										className='flex items-center gap-2 mb-3'>
-										<FaLaptopHouse className='h-8 w-8 text-prime' />
-										<span className='text-3xl text-prime font-bold'>
-											MeraPG
-										</span>
+									<Link to='/' className='mb-3'>
+										<img
+											className='w-36'
+											src='./merapglogo.png'
+											alt='MERAPG'
+										/>
 									</Link>
 								</SheetTitle>
 								<hr />

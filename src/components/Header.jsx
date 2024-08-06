@@ -39,10 +39,8 @@ const Header = () => {
 				} fixed w-full z-50 h-20  transition-all duration-300`}>
 				<div
 					className={`${
-						isScrolled
-							? "w-full transition-all duration-300"
-							: "container"
-					} mx-auto flex h-full items-center bg-[#fff] justify-between px-2 md:px-6`}>
+						isScrolled ? "w-full 2xl:justify-around " : "container"
+					} mx-auto flex h-full items-center bg-[#fff] justify-between px-2 md:px-6 shadow-lg shadow-prime/50 transition-all duration-500`}>
 					<Link to='/' className='flex items-center gap-2'>
 						<FaLaptopHouse className='h-8 w-8 text-prime' />
 						<span className='text-3xl text-prime font-bold'>
@@ -139,9 +137,17 @@ const Header = () => {
 							<SheetContent
 								side='left'
 								className='w-[80vw] md:hidden'>
-								<SheetTitle className='visually-hidden'>
-									Menu
+								<SheetTitle className=''>
+									<Link
+										to='/'
+										className='flex items-center gap-2 mb-3'>
+										<FaLaptopHouse className='h-8 w-8 text-prime' />
+										<span className='text-3xl text-prime font-bold'>
+											MeraPG
+										</span>
+									</Link>
 								</SheetTitle>
+								<hr />
 								<div className='flex flex-col gap-6 p-6'>
 									<Link
 										to='/'

@@ -11,104 +11,10 @@ import {
 } from "./ui/select";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const roomsData = [
-	{
-		_id: "1",
-		title: "Cozy Studio Apartment",
-		image: "/bedroom.jpg",
-		category: "PG",
-		area: "300 sq ft",
-		rent: "$500/month",
-		availability: "2 rooms",
-		location: "kalyanpur, Kanpur",
-	},
-	{
-		_id: "2",
-		title: "Spacious 1BHK Apartment",
-		image: "/living.jpg",
-		category: "PG",
-		area: "500 sq ft",
-		rent: "$800/month",
-		availability: "1 room",
-		location: "Ravatpur, Kanpur",
-	},
-	{
-		_id: "3",
-		title: "Furnished Studio Flat",
-		image: "/funiture.jpg",
-		category: "PG",
-		area: "250 sq ft",
-		rent: "$450/month",
-		availability: "3 rooms",
-		location: "Panki, Kanpur",
-	},
-	{
-		_id: "4",
-		title: "Deluxe 2BHK Apartment",
-		image: "/living.jpg",
-		category: "Apartment",
-		area: "800 sq ft",
-		rent: "$1200/month",
-		availability: "1 room",
-		location: "Gurdev, Kanpur",
-	},
-	{
-		_id: "5",
-		title: "Shared Accommodation",
-		image: "/funiture.jpg",
-		category: "Shared",
-		area: "150 sq ft",
-		rent: "$300/month",
-		availability: "5 rooms",
-		location: "kalyanpur, Kanpur",
-	},
-	{
-		_id: "6",
-		title: "Luxury Studio Apartment",
-		image: "/living.jpg",
-		category: "PG",
-		area: "400 sq ft",
-		rent: "$700/month",
-		availability: "2 rooms",
-		location: "IIT, Kanpur",
-	},
-	{
-		_id: "7",
-		title: "Cozy 1BHK Apartment",
-		image: "/bedroom.jpg",
-		category: "PG",
-		area: "400 sq ft",
-		rent: "$650/month",
-		availability: "3 rooms",
-		location: "kalyanpur, Kanpur",
-	},
-	{
-		_id: "8",
-		title: "Spacious 2BHK Apartment",
-		image: "/funiture.jpg",
-		category: "PG",
-		area: "700 sq ft",
-		rent: "$1000/month",
-		availability: "2 rooms",
-		location: "kalyanpur, Kanpur",
-	},
-	{
-		_id: "9",
-		title: "Spacious 2BHK Apartment",
-		image: "/bedroom.jpg",
-		category: "PG",
-		area: "700 sq ft",
-		rent: "$1000/month",
-		availability: "2 rooms",
-		location: "Kakadeo, Kanpur",
-	},
-];
-
 export default function Properties(data) {
 	const [properties, setProperties] = useState([]);
 	const [filters, setFilters] = useState({
 		budget: 0,
-		propertyType: "All",
 	});
 
 	useEffect(() => {
@@ -129,19 +35,13 @@ export default function Properties(data) {
 			if (filters?.budget > 0 && property?.rent > filters?.budget) {
 				return false;
 			}
-			if (
-				filters.propertyType !== "All" &&
-				property.category !== filters?.propertyType
-			) {
-				return false;
-			}
 			return true;
 		});
 	}, [properties, filters]);
 
 	return (
-		<section className='w-full py-12 md:py-16 lg:py-20'>
-			<div className='container grid gap-8 px-4 md:px-6'>
+		<section className='w-full py-8 md:py-12 lg:py-16'>
+			<div className='container grid gap-3 px-4 md:px-6'>
 				<div className='flex flex-col items-center justify-center space-y-4 text-center'>
 					<div className='space-y-2'>
 						<h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>
@@ -155,9 +55,11 @@ export default function Properties(data) {
 					</div>
 				</div>
 				<div className='flex md:justify-end justify-center items-end md:items-center gap-4 mb-3'>
-					<div className='grid items-center gap-2'>
-						<Label htmlFor='budget' className='text-sm font-medium'>
-							Budget
+					<div className='flex items-center'>
+						<Label
+							htmlFor='budget'
+							className='text-sm w-full font-medium'>
+							Filter by Budget
 						</Label>
 						<Input
 							id='budget'
@@ -171,33 +73,6 @@ export default function Properties(data) {
 								)
 							}
 						/>
-					</div>
-					<div className='grid gap-2'>
-						<Label
-							htmlFor='property-type'
-							className='text-sm font-medium'>
-							Property Type
-						</Label>
-						<Select
-							id='property-type'
-							value={filters.propertyType}
-							onValueChange={(value) =>
-								handleFilterChange("propertyType", value)
-							}>
-							<SelectTrigger>
-								<SelectValue placeholder='Select property type' />
-							</SelectTrigger>
-							<SelectContent>
-								<SelectItem value='All'>All</SelectItem>
-								<SelectItem value='room'>Room</SelectItem>
-								<SelectItem value='pg'>PG</SelectItem>
-								<SelectItem value='flat'>Flat</SelectItem>
-								<SelectItem value='house'>House</SelectItem>
-								<SelectItem value='shared'>Shared</SelectItem>
-								<SelectItem value='shop'>Shop</SelectItem>
-								<SelectItem value='other'>Other</SelectItem>
-							</SelectContent>
-						</Select>
 					</div>
 				</div>
 				<hr />

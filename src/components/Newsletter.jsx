@@ -1,8 +1,44 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Newsletter = () => {
+	const [email, setEmail] = useState("");
+
+	const apiKey = "c8708a78-d034-4415-9022-f0d6f36e6965";
+	const formId = "46993994";
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const data = {
+			fields: [{ name: "email", value: email }],
+		};
+
+		try {
+			const response = await axios.post(
+				`https://api.hsforms.com/submissions/v3/integration/submit/${formId}/${apiKey}`,
+				data,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
+			if (response.status === 200) {
+				toast.success("Subscribed successfully!");
+				setEmail("");
+			} else {
+				toast.error("Failed to send message. Please try again.");
+			}
+		} catch (error) {
+			console.error(error);
+			toast.error("An error occurred while sending the message.");
+		}
+	};
 	return (
 		<>
 			<section className='bg-white dark:bg-gray-900'>
@@ -16,7 +52,7 @@ const Newsletter = () => {
 							announcements and exclusive discounts feel free to
 							sign up with your email.
 						</p>
-						<form action='#'>
+						<form onSubmit={handleSubmit}>
 							<div className='items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0'>
 								<div className='relative w-full'>
 									<label
@@ -32,7 +68,10 @@ const Newsletter = () => {
 										placeholder='Enter your email'
 										type='email'
 										id='email'
-										required=''
+										value={email}
+										onChange={(e) =>
+											setEmail(e.target.value)
+										}
 									/>
 								</div>
 								<div>

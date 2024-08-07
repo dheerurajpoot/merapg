@@ -1,14 +1,59 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoIosMail } from "react-icons/io";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+	const apiKey = "b29ca6f2-b850-409b-9e9e-b608e1ec4e5f";
+	const formId = "46993994"; // replace with your actual form ID
+
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const data = {
+			fields: [
+				{ name: "full_name", value: name },
+				{ name: "email", value: email },
+				{ name: "message", value: message },
+			],
+		};
+
+		try {
+			const response = await axios.post(
+				`https://api.hsforms.com/submissions/v3/integration/submit/${formId}/${apiKey}`,
+				data,
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
+			if (response.status === 200) {
+				toast.success("Message sent successfully!");
+				setName("");
+				setEmail("");
+				setMessage("");
+			} else {
+				toast.error("Failed to send message. Please try again.");
+			}
+		} catch (error) {
+			console.error(error);
+			toast.error("An error occurred while sending the message.");
+		}
+	};
+
 	return (
 		<>
 			<div className='w-full'>
@@ -28,7 +73,7 @@ const Contact = () => {
 							to help.
 						</p>
 						<Link
-							href='#'
+							to='#'
 							className='mt-8 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-colors bg-prime hover:bg-prime/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'>
 							Contact Us
 						</Link>
@@ -70,13 +115,17 @@ const Contact = () => {
 							<h2 className='text-2xl font-bold tracking-tighter text-foreground sm:text-3xl'>
 								Send Us a Message
 							</h2>
-							<form className='space-y-4'>
+							<form className='space-y-4' onSubmit={handleSubmit}>
 								<div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
 									<div>
 										<Label htmlFor='name'>Name</Label>
 										<Input
 											id='name'
 											placeholder='Enter your name'
+											value={name}
+											onChange={(e) =>
+												setName(e.target.value)
+											}
 										/>
 									</div>
 									<div>
@@ -85,6 +134,10 @@ const Contact = () => {
 											id='email'
 											type='email'
 											placeholder='Enter your email'
+											value={email}
+											onChange={(e) =>
+												setEmail(e.target.value)
+											}
 										/>
 									</div>
 								</div>
@@ -94,6 +147,10 @@ const Contact = () => {
 										id='message'
 										rows={5}
 										placeholder='Enter your message'
+										value={message}
+										onChange={(e) =>
+											setMessage(e.target.value)
+										}
 									/>
 								</div>
 								<Button

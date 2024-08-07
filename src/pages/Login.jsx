@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import { api } from "@/api/api";
+import { api, BACKEND_URL } from "@/api/api";
 import { toast } from "react-toastify";
 import { AuthContext } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -45,7 +45,7 @@ const Login = () => {
 	};
 
 	const handleGoogleLogin = () => {
-		window.location.href = `${api}/auth/google`;
+		window.location.href = `${BACKEND_URL}/auth/google`;
 	};
 
 	return (

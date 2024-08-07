@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
 
 	const getUserProfile = async () => {
 		try {
+			if (!user) return;
 			const res = await axios.get(`${api}/user/profile`, {
 				withCredentials: true,
 			});

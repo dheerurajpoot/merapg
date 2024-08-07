@@ -19,17 +19,17 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { IoSearchSharp } from "react-icons/io5";
 
 const Home = () => {
 	const [city, setCity] = useState("");
 	const [category, setCategory] = useState("");
+	const [budget, setBudget] = useState("");
 	const [properties, setProperties] = useState([]);
 
 	const getProperties = async () => {
 		try {
 			const res = await axios.get(
-				`${api}/properties/?city=${city}&category=${category}`
+				`${api}/properties/?city=${city}&category=${category}&budget=${budget}`
 			);
 			if (!res.data.success) {
 				setProperties([]);
@@ -107,7 +107,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div className='container px-4 md:px-6 mt-8'>
-						<div className='bg-background rounded-lg shadow-lg p-4 md:p-6 grid md:grid-cols-3 grid-cols-5 gap-3'>
+						<div className='bg-background rounded-lg shadow-lg p-4 md:p-6 grid grid-cols-4 gap-3'>
 							<Input
 								type='text'
 								placeholder='Search by City'
@@ -124,7 +124,7 @@ const Home = () => {
 										setCategory(value)
 									}>
 									<SelectTrigger>
-										<SelectValue placeholder='Select category' />
+										<SelectValue placeholder='Category' />
 									</SelectTrigger>
 									<SelectContent>
 										<SelectItem value='room'>
@@ -149,11 +149,43 @@ const Home = () => {
 									</SelectContent>
 								</Select>
 							</div>
+							<div className='md:col-span-1 col-span-2'>
+								<Select
+									id='budget'
+									value={budget}
+									onValueChange={(value) => setBudget(value)}>
+									<SelectTrigger>
+										<SelectValue placeholder='Budget' />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectItem value='0-500000'>
+											All
+										</SelectItem>
+										<SelectItem value='0-2500'>
+											0 - 2500
+										</SelectItem>
+										<SelectItem value='2500-3500'>
+											2500 - 3500
+										</SelectItem>
+										<SelectItem value='3500-5000'>
+											3500 - 5000
+										</SelectItem>
+										<SelectItem value='5000-7000'>
+											5000 - 7000
+										</SelectItem>
+										<SelectItem value='7000-10000'>
+											7000 - 10000
+										</SelectItem>
+										<SelectItem value='10000-10000000'>
+											10000+
+										</SelectItem>
+									</SelectContent>
+								</Select>
+							</div>
 							<Button
 								onClick={getProperties}
-								className='md:col-span-1 col-span-1 bg-prime hover:bg-prime/80'>
-								<IoSearchSharp className='h-6 w-6 md:h-5 md:w-5 md:mr-2' />
-								<span className='hidden md:block'>Search</span>
+								className='md:col-span-1 col-span-2 bg-prime hover:bg-prime/80'>
+								Search
 							</Button>
 						</div>
 					</div>

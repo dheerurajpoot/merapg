@@ -25,7 +25,7 @@ const Profile = () => {
 	const [loading, setLoading] = useState(false);
 	const [preview, setPreview] = useState(null);
 	const [properties, setProperties] = useState([]);
-	const { user, login } = useContext(AuthContext);
+	const { user, login, logout } = useContext(AuthContext);
 	const [formData, setFormData] = useState({
 		name: user?.name || "",
 		email: user?.email || "",
@@ -85,7 +85,6 @@ const Profile = () => {
 			const res = await axios.put(`${api}/user/updateprofile`, data, {
 				withCredentials: true,
 			});
-			console.log(res.data);
 			if (res?.data?.success) {
 				toast.success(res?.data?.message);
 				localStorage.removeItem("user");
@@ -182,13 +181,21 @@ const Profile = () => {
 										onChange={handleChange}
 									/>
 								</div>
-								<Button
-									onClick={updateProfile}
-									className='bg-prime hover:bg-prime/80'>
-									{loading
-										? "Profile Updating..."
-										: "Update Profile"}
-								</Button>
+								<div className='flex gap-2 items-center'>
+									<Button
+										onClick={updateProfile}
+										className='bg-prime hover:bg-prime/80'>
+										{loading
+											? "Profile Updating..."
+											: "Update Profile"}
+									</Button>
+									<Button
+										onClick={logout}
+										variant='destructive'
+										size='sm'>
+										Log Out
+									</Button>
+								</div>
 							</div>
 						</div>
 						<div className='flex-1'>

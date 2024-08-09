@@ -2,15 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { FaLaptopHouse } from "react-icons/fa";
 import { IoMenuSharp } from "react-icons/io5";
 import { AuthContext } from "@/context/AuthContext";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Header = () => {
@@ -84,31 +77,17 @@ const Header = () => {
 							</Link>
 							<div className='hidden md:inline-block'>
 								{user ? (
-									<DropdownMenu>
-										<DropdownMenuTrigger>
-											<Avatar className='w-10 h-10 border-2'>
-												<AvatarImage
-													src={user?.profilePic}
-													className='object-cover'
-												/>
-												<AvatarFallback>
-													{user?.name?.charAt()[0]}
-												</AvatarFallback>
-											</Avatar>
-										</DropdownMenuTrigger>
-										<DropdownMenuContent>
-											<DropdownMenuItem>
-												<Link to='/profile'>
-													Profile
-												</Link>
-											</DropdownMenuItem>
-											<DropdownMenuItem
-												onClick={logout}
-												className='cursor-pointer'>
-												Log Out
-											</DropdownMenuItem>
-										</DropdownMenuContent>
-									</DropdownMenu>
+									<Link to='/profile'>
+										<Avatar className='w-10 h-10 border-2'>
+											<AvatarImage
+												src={user?.profilePic}
+												className='object-cover'
+											/>
+											<AvatarFallback>
+												{user?.name?.charAt()[0]}
+											</AvatarFallback>
+										</Avatar>
+									</Link>
 								) : (
 									<Link
 										to='/login'

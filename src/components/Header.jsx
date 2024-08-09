@@ -14,7 +14,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Header = () => {
-	const { user, profile, logout } = useContext(AuthContext);
+	const { user, logout } = useContext(AuthContext);
 	const [isScrolled, setIsScrolled] = useState(false);
 
 	useEffect(() => {
@@ -88,11 +88,11 @@ const Header = () => {
 										<DropdownMenuTrigger>
 											<Avatar className='w-10 h-10 border-2'>
 												<AvatarImage
-													src={profile?.profilePic}
+													src={user?.profilePic}
 													className='object-cover'
 												/>
 												<AvatarFallback>
-													{profile?.name?.charAt()[0]}
+													{user?.name?.charAt()[0]}
 												</AvatarFallback>
 											</Avatar>
 										</DropdownMenuTrigger>

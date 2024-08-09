@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import ProtectedRoutes from "./routing/ProtectedRoutes";
 import OpenRoutes from "./routing/OpenRoutes";
 import FindPG from "./pages/FindPG";
+import GoogleLoginSuccess from "./components/GoogleLoginSuccess";
 
 function App() {
 	return (
@@ -30,6 +31,10 @@ function App() {
 						<Route path='/about' element={<About />} />
 						<Route path='/faq' element={<Faq />} />
 						<Route path='/findpg' element={<FindPG />} />
+						<Route
+							path='/auth/google/success'
+							element={<GoogleLoginSuccess />}
+						/>
 						<Route
 							path='/profile'
 							element={

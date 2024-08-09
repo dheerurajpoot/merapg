@@ -45,6 +45,7 @@ const Home = () => {
 			setCity("");
 		}
 	};
+
 	useEffect(() => {
 		getProperties();
 	}, []);

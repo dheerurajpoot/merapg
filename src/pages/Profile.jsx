@@ -8,7 +8,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaCamera } from "react-icons/fa6";
 import { IoKeyOutline } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -18,40 +18,27 @@ import { Input } from "@/components/ui/input";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { api } from "@/api/api";
+import { AuthContext } from "@/context/AuthContext";
 
 const Profile = () => {
 	const fileInputRef = useRef(null);
-	const [user, setUser] = useState({});
 	const [loading, setLoading] = useState(false);
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		profilePic: null,
-	});
 	const [preview, setPreview] = useState(null);
 	const [properties, setProperties] = useState([]);
-
-	const getUserProfile = async () => {
-		try {
-			const res = await axios.get(`${api}/user/profile`, {
-				withCredentials: true,
-			});
-			if (res.data.success) {
-				setUser(res.data.user);
-				setFormData({
-					name: res.data.user.name,
-					email: res.data.user.email,
-					profilePic: null,
-				});
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	const { user, login } = useContext(AuthContext);
+	const [formData, setFormData] = useState({
+		name: user?.name || "",
+		email: user?.email || "",
+		profilePic: null,
+	});
 
 	useEffect(() => {
-		getUserProfile();
-	}, []);
+		setFormData({
+			name: user?.name || "",
+			email: user?.email || "",
+			profilePic: null,
+		});
+	}, [user?._id]);
 
 	const handleChange = (e) => {
 		const { id, value, type, files } = e.target;
@@ -98,9 +85,11 @@ const Profile = () => {
 			const res = await axios.put(`${api}/user/updateprofile`, data, {
 				withCredentials: true,
 			});
+			console.log(res.data);
 			if (res?.data?.success) {
 				toast.success(res?.data?.message);
-				getUserProfile();
+				localStorage.removeItem("user");
+				login(res?.data?.user);
 				setPreview(null);
 			}
 			setLoading(false);
@@ -128,7 +117,6 @@ const Profile = () => {
 			}
 		} catch (error) {
 			console.log(error);
-			toast.error(error.response.data.message);
 		}
 	};
 	useEffect(() => {
@@ -137,7 +125,7 @@ const Profile = () => {
 
 	return (
 		<>
-			<section className='w-full py-12 mt-8 md:py-16 lg:py-20'>
+			<section className='w-full py-12 mt-16 md:py-16 lg:py-20'>
 				<div className='container mx-auto p-6 sm:p-8 md:p-10'>
 					<div className='flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10'>
 						<div className='flex flex-col items-center gap-4 rounded-lg shadow-md p-6'>
@@ -210,6 +198,9 @@ const Profile = () => {
 										Your PG Listings
 									</h2>
 									<Separator className='my-4' />
+									{properties.length == 0 && (
+										<span>No property found</span>
+									)}
 									<div className='grid gap-4'>
 										{properties.map((property, index) => (
 											<Card key={index}>

@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import { api } from "@/api/api";
+import { api, BACKEND_URL } from "@/api/api";
 import { toast } from "react-toastify";
 
 const Signup = () => {
@@ -41,6 +41,11 @@ const Signup = () => {
 			console.log(error);
 		}
 	};
+
+	const handleGoogleLogin = () => {
+		window.location.href = `${BACKEND_URL}/auth/google`;
+	};
+
 	return (
 		<>
 			<div className='flex min-h-[63dvh] mt-20 flex-col items-center justify-center bg-background'>
@@ -75,6 +80,7 @@ const Signup = () => {
 									<div className='w-full max-w-md space-y-6'>
 										<Button
 											variant='outline'
+											onClick={handleGoogleLogin}
 											className='w-full'>
 											<FcGoogle className='mr-2 h-5 w-5' />
 											Sign up with Gmail

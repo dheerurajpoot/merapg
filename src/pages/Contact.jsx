@@ -166,7 +166,7 @@ const Contact = () => {
 					<div className='container mx-auto px-4 sm:px-6 lg:px-8'>
 						<div className='aspect-w-16 aspect-h-9'>
 							<iframe
-								src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8380154157994!2d-122.41941868451349!3d37.77493497975203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4b3b%3A0xb10ed6d9b5050fa5!2sVercel%20Inc!5e0!3m2!1sen!2sus!4v1624992385739!5m2!1sen!2sus'
+								src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1254.1641932899295!2d80.24654286963913!3d26.497390698784212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c37bb2993d24f%3A0xff91b9cad7fa339f!2sJai%20Durga%20Traders!5e1!3m2!1sen!2sin!4v1723294303916!5m2!1sen!2sin'
 								width='100%'
 								height='450'
 								style={{ border: 0 }}

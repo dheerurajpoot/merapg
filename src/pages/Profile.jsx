@@ -19,6 +19,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { api } from "@/api/api";
 import { AuthContext } from "@/context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
 	const fileInputRef = useRef(null);
@@ -122,6 +123,22 @@ const Profile = () => {
 		getUserProperty();
 	}, [userId]);
 
+	// delete user property
+	const deleteProperty = async (pId) => {
+		try {
+			const res = await axios.delete(`${api}/properties?pId=${pId}`, {
+				withCredentials: true,
+			});
+			if (res.data.success) {
+				getUserProperty();
+				toast.success(res.data?.message);
+			}
+		} catch (error) {
+			console.log(error);
+			toast.error(error.response?.data?.message);
+		}
+	};
+
 	return (
 		<>
 			<section className='w-full py-12 mt-16 md:py-16 lg:py-20'>
@@ -158,10 +175,12 @@ const Profile = () => {
 									style={{ display: "none" }}
 									onChange={handleChange}
 								/>
-								<Button variant='outline' size='sm'>
-									<IoKeyOutline className='w-4 h-4 mr-2' />
-									Reset Password
-								</Button>
+								<Link to='/reset-password-link'>
+									<Button variant='outline' size='sm'>
+										<IoKeyOutline className='w-4 h-4 mr-2' />
+										Reset Password
+									</Button>
+								</Link>
 							</div>
 							<div className='mt-6 space-y-4'>
 								<div>
@@ -276,6 +295,11 @@ const Profile = () => {
 															Booked
 														</Button>
 														<Button
+															onClick={() =>
+																deleteProperty(
+																	property?._id
+																)
+															}
 															variant='destructive'
 															size='sm'>
 															Delete

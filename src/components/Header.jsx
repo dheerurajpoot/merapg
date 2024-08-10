@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { IoMenuSharp } from "react-icons/io5";
 import { AuthContext } from "@/context/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import merapgLogo from "./../../public/merapglogo.png";
 
 const Header = () => {
 	const { user, logout } = useContext(AuthContext);
@@ -35,11 +36,7 @@ const Header = () => {
 						isScrolled ? "w-full 2xl:justify-around " : "container"
 					} mx-auto flex h-full items-center bg-[#fff] justify-between px-2 md:px-6 shadow-lg shadow-prime/50 transition-all duration-500`}>
 					<Link to='/'>
-						<img
-							className='w-36'
-							src='./merapglogo.png'
-							alt='MERAPG'
-						/>
+						<img className='w-36' src={merapgLogo} alt='MERAPG' />
 					</Link>
 					<nav className='hidden items-center gap-6 md:flex'>
 						<Link

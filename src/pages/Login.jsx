@@ -132,6 +132,13 @@ const Login = () => {
 													}
 												/>
 											</div>
+											<div className='flex justify-end'>
+												<Link
+													to='/reset-password-link'
+													className='text-prime text-sm underline'>
+													Forgot password
+												</Link>
+											</div>
 											<Button
 												type='submit'
 												className='w-full bg-prime hover:bg-prime/90'>

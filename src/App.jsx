@@ -18,6 +18,8 @@ import ProtectedRoutes from "./routing/ProtectedRoutes";
 import OpenRoutes from "./routing/OpenRoutes";
 import FindPG from "./pages/FindPG";
 import GoogleLoginSuccess from "./components/GoogleLoginSuccess";
+import ResetPasswordLink from "./pages/ResetPasswordLink";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
 	return (
@@ -58,6 +60,14 @@ function App() {
 									<Signup />
 								</OpenRoutes>
 							}
+						/>
+						<Route
+							path='/reset-password-link'
+							element={<ResetPasswordLink />}
+						/>
+						<Route
+							path='/forgot-password/:token'
+							element={<ForgotPassword />}
 						/>
 						<Route
 							path='/addproperty'

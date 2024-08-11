@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { IoMenuSharp } from "react-icons/io5";
 import { AuthContext } from "@/context/AuthContext";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import merapgLogo from "./../../public/merapglogo.png";
+import merapgLogo from "/merapglogo.png";
 
 const Header = () => {
 	const { user, logout } = useContext(AuthContext);

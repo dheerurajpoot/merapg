@@ -139,9 +139,29 @@ const Profile = () => {
 		}
 	};
 
+	// update property status
+	const isBooked = async (pId) => {
+		try {
+			const res = await axios.put(
+				`${api}/properties/isbooked?pId=${pId}`,
+				{
+					withCredentials: true,
+				}
+			);
+			if (res.data.success) {
+				getUserProperty();
+				toast.success(res.data?.message);
+			}
+		} catch (error) {
+			console.log(error);
+			toast.error(error.response?.data?.message);
+		}
+	};
+
 	return (
 		<>
-			<section className='w-full py-12 mt-16 md:py-16 lg:py-20'>
+			<section className='w-full'>
+				<section className='relative h-[100px] md:h-[200px] bg-gradient-to-t from-white/10 to-primary/90 overflow-hidden'></section>
 				<div className='container mx-auto p-6 sm:p-8 md:p-10'>
 					<div className='flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10'>
 						<div className='flex flex-col items-center gap-4 rounded-lg shadow-md p-6'>
@@ -290,9 +310,16 @@ const Profile = () => {
 												<CardFooter>
 													<div className='flex justify-end gap-2'>
 														<Button
+															onClick={() =>
+																isBooked(
+																	property?._id
+																)
+															}
 															className='bg-prime hover:bg-prime/80'
 															size='sm'>
-															Booked
+															{property?.isBooked
+																? "Unbooked"
+																: "Booked"}
 														</Button>
 														<Button
 															onClick={() =>

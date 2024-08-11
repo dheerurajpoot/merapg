@@ -95,8 +95,17 @@ const AddProperty = () => {
 
 	return (
 		<>
-			<div className='container mx-auto mt-28 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20'>
-				<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12'>
+			<div className='w-full mx-auto'>
+				<section className='relative h-[200px] md:h-[250px] overflow-hidden'>
+					<img
+						src='/bedroom.jpg'
+						width='100%'
+						alt='Contact Banner'
+						className='object-cover object-center '
+					/>
+					<div className='absolute inset-0 bg-black/50 bg-[#fff]/40'></div>
+				</section>
+				<div className='container my-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12'>
 					<div>
 						<h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight'>
 							Add Your Property

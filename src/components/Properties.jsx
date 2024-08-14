@@ -7,7 +7,7 @@ export default function Properties(data) {
 
 	useEffect(() => {
 		if (data.data) {
-			setProperties(data?.data);
+			setProperties(data?.data.reverse());
 		}
 	}, [data]);
 
@@ -59,7 +59,7 @@ export default function Properties(data) {
 										</p>
 									</div>
 									<div className='flex items-center justify-between'>
-										<div className='text-sm text-muted-foreground'>
+										<div className='text-sm text-muted-foreground capitalize'>
 											<span className='font-medium'>
 												Category:
 											</span>{" "}

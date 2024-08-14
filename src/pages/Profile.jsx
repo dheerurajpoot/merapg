@@ -285,7 +285,7 @@ const Profile = () => {
 																}
 															</span>
 														</div>
-														<div className='flex items-center justify-between'>
+														<div className='flex items-center justify-between capitalize'>
 															<span>
 																Services
 															</span>
@@ -295,7 +295,7 @@ const Profile = () => {
 																}
 															</span>
 														</div>
-														<div className='flex items-center justify-between'>
+														<div className='flex items-center justify-between capitalize'>
 															<span>
 																Category
 															</span>

@@ -59,7 +59,7 @@ const PropertyDetails = () => {
 								</h4>
 								<p className='mb-6'>{property?.description}</p>
 								<div className='grid gap-4 grid-cols-2'>
-									<div className='grid gap-1'>
+									<div className='grid gap-1 capitalize'>
 										<p className='text-sm font-medium text-muted-foreground'>
 											Type
 										</p>
@@ -71,7 +71,7 @@ const PropertyDetails = () => {
 										</p>
 										<p>{property?.area} ft</p>
 									</div>
-									<div className='grid gap-1'>
+									<div className='grid gap-1 capitalize'>
 										<p className='text-sm font-medium text-muted-foreground'>
 											Services
 										</p>
@@ -98,9 +98,7 @@ const PropertyDetails = () => {
 											<img
 												src={image}
 												alt={property?.title}
-												width={300}
-												height={300}
-												className='h-full w-full object-cover transition-all duration-300 group-hover:scale-105'
+												className='w-full object-cover transition-all duration-300 group-hover:scale-105'
 											/>
 										</Link>
 									))}
@@ -129,7 +127,7 @@ const PropertyDetails = () => {
 								</CardHeader>
 								<CardContent>
 									<div className='grid gap-4 grid-cols-2 justify-center'>
-										<div className='grid gap-1'>
+										<div className='grid gap-1 capitalize'>
 											<p className='text-md font-medium text-muted-foreground'>
 												Owner Name
 											</p>

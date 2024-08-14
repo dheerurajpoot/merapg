@@ -12,10 +12,12 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddProperty = () => {
 	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
 		title: "",
 		description: "",
@@ -70,7 +72,12 @@ const AddProperty = () => {
 				data,
 				{ withCredentials: true }
 			);
-			toast.success(res?.data?.message);
+			if (res.data.success) {
+				toast.success(res?.data?.message);
+				setTimeout(() => {
+					navigate(`/property/${res.data?.property?._id}`);
+				}, 1000);
+			}
 			setLoading(false);
 			setFormData({
 				title: "",

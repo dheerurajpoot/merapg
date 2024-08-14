@@ -37,7 +37,6 @@ const Home = () => {
 			}
 			setProperties(res.data.properties);
 		} catch (error) {
-			console.log(error);
 			setProperties([]);
 			toast.error(error.response?.data?.message);
 		} finally {
@@ -72,7 +71,7 @@ const Home = () => {
 									align: "center",
 									loop: true,
 									autoplay: true,
-									interval: 500,
+									interval: 1000,
 								}}
 								className='rounded-xl overflow-hidden'>
 								<CarouselContent>
@@ -97,6 +96,33 @@ const Home = () => {
 									<CarouselItem>
 										<img
 											src='./bedroom.jpg'
+											width='550'
+											height='550'
+											alt='Hero'
+											className='aspect-video object-cover'
+										/>
+									</CarouselItem>
+									<CarouselItem>
+										<img
+											src='./bedroom.jpg'
+											width='550'
+											height='550'
+											alt='Hero'
+											className='aspect-video object-cover'
+										/>
+									</CarouselItem>
+									<CarouselItem>
+										<img
+											src='./living.jpg'
+											width='550'
+											height='550'
+											alt='Hero'
+											className='aspect-video object-cover'
+										/>
+									</CarouselItem>
+									<CarouselItem>
+										<img
+											src='./living.jpg'
 											width='550'
 											height='550'
 											alt='Hero'

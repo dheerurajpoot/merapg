@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const Blogs = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<div className='w-full'>
-				<section className='bg-primary text-primary-foreground py-24 md:py-36'>
+				<section className='bg-primary text-primary-foreground pt-32 pb-12 md:pt-40 md:pb-12'>
 					<div className='container mx-auto px-4 md:px-6 max-w-4xl text-center'>
 						<h1 className='text-3xl md:text-5xl font-bold mb-4'>
 							Discover the Latest in Room and PG Rentals
@@ -17,11 +20,6 @@ const Blogs = () => {
 							advice, and industry insights for renters and
 							landlords.
 						</p>
-						<Link
-							href='#'
-							className='inline-flex items-center justify-center rounded-md bg-primary-foreground px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary/90 focus:outline-none focus:ring-1 focus:ring-primary/50'>
-							Read Our Blogs
-						</Link>
 					</div>
 				</section>
 				<section className='py-12 md:py-20'>

@@ -42,6 +42,9 @@ const FindPG = () => {
 		getProperties();
 	}, []);
 
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<section className='w-full py-12 md:py-24 lg:py-24 bg-gradient-to-r from-primary to-primary/80'>

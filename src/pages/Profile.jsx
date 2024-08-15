@@ -157,7 +157,9 @@ const Profile = () => {
 			toast.error(error.response?.data?.message);
 		}
 	};
-
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<section className='w-full'>
@@ -252,7 +254,10 @@ const Profile = () => {
 											<Card key={index}>
 												<CardHeader>
 													<CardTitle>
-														{property?.title}
+														<Link
+															to={`/property/${property?._id}`}>
+															{property?.title}
+														</Link>
 													</CardTitle>
 													<CardDescription>
 														<span className='flex items-center gap-2'>

@@ -3,10 +3,13 @@ import {
 	CollapsibleContent,
 	CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 
 const Faq = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<section className='container mt-20 mx-auto py-12 px-4 sm:px-6 lg:px-8'>

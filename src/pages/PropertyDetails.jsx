@@ -28,6 +28,10 @@ const PropertyDetails = () => {
 	useEffect(() => {
 		getProperty();
 	}, [pId]);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<div className='bg-background text-foreground'>
@@ -50,7 +54,7 @@ const PropertyDetails = () => {
 				<div className='container py-12 sm:py-16 md:py-20'>
 					<div className='grid gap-8 md:grid-cols-[1fr_300px]'>
 						<div className='grid gap-8'>
-							<section>
+							<section className='border rounded-lg p-6'>
 								<h2 className='mb-2 text-2xl font-bold'>
 									Property Details
 								</h2>
@@ -105,7 +109,7 @@ const PropertyDetails = () => {
 								</div>
 							</section>
 						</div>
-						<div className='grid gap-8'>
+						<div className='flex flex-col gap-5'>
 							<Card>
 								<CardHeader>
 									<CardTitle>Pricing</CardTitle>

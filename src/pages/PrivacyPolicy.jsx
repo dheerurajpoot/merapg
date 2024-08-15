@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const PrivacyPolicy = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<div className='container mt-20 mx-auto p-6 sm:p-8 md:p-10'>

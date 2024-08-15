@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoIosMail } from "react-icons/io";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
@@ -53,18 +53,21 @@ const Contact = () => {
 			toast.error("An error occurred while sending the message.");
 		}
 	};
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>
 			<div className='w-full'>
-				<section className='relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden'>
+				<section className='relative h-[300px] md:h-[400px] overflow-hidden'>
 					<img
 						src='/bedroom.jpg'
 						width='100%'
 						alt='Contact Banner'
 						className='object-cover object-center '
 					/>
-					<div className='absolute inset-0 bg-black/50 flex flex-col items-center bg-[#fff]/40 justify-center px-4 text-center text-white'>
+					<div className='absolute mt-10 md:mt-20 inset-0 bg-black/50 flex flex-col items-center bg-[#fff]/40 justify-center px-4 text-center'>
 						<h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
 							Get in Touch with MeraPG
 						</h1>
@@ -72,11 +75,6 @@ const Contact = () => {
 							Have a question or need assistance? Our team is here
 							to help.
 						</p>
-						<Link
-							to='#'
-							className='mt-8 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-colors bg-prime hover:bg-prime/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2'>
-							Contact Us
-						</Link>
 					</div>
 				</section>
 				<section className='py-12 md:py-16 lg:py-20'>

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const TermsConditions = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<>
 			<div className='container mt-20 mx-auto px-4 py-12 sm:px-6 lg:px-8'>

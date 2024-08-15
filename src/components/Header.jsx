@@ -117,13 +117,13 @@ const Header = () => {
 								<SheetTitle className=''>
 									<Link to='/' className='mb-3'>
 										<img
-											className='w-36'
+											className='w-32 h-14 object-cover'
 											src='./merapglogo.png'
 											alt='MERAPG'
 										/>
 									</Link>
 								</SheetTitle>
-								<hr />
+								<hr className='mt-5' />
 								<div className='flex flex-col gap-6 p-6'>
 									<Link
 										to='/'

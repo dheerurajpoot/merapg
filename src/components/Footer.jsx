@@ -71,7 +71,7 @@ const Footer = () => {
 						<div className='grid gap-2'>
 							<h3 className='text-lg font-semibold'>Explore</h3>
 							<Link
-								to='/'
+								to='/findpg'
 								className='text-muted-foreground hover:text-prime hover:underline'>
 								Find a Room
 							</Link>

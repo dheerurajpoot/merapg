@@ -160,11 +160,21 @@ const Header = () => {
 											+ List Property
 										</Link>
 									</Button>
-									<Button
-										onClick={logout}
-										className='inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium shadow  hover:bg-prime/90'>
-										Log Out
-									</Button>
+									{user ? (
+										<Button
+											onClick={logout}
+											className='inline-flex h-10 w-full items-center justify-center rounded-md px-4 text-sm font-medium shadow bg-prime hover:bg-prime/90'>
+											Log Out
+										</Button>
+									) : (
+										<Link>
+											<Button
+												to='/login'
+												className='inline-flex h-10 w-full items-center justify-center rounded-md px-4 text-sm font-medium shadow bg-prime hover:bg-prime/90'>
+												Log In
+											</Button>
+										</Link>
+									)}
 								</div>
 							</SheetContent>
 						</Sheet>

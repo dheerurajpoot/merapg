@@ -6,8 +6,8 @@ const PrivacyPolicy = () => {
 	}, []);
 	return (
 		<>
-			<div className='container mt-20 mx-auto p-6 sm:p-8 md:p-10'>
-				<div className='space-y-6'>
+			<div className='flex md:mt-20 flex-col items-center justify-center'>
+				<div className='container mt-20 md:mt-2 space-y-6 py-12 md:px-6 lg:py-24'>
 					<h1 className='text-3xl font-bold'>Privacy Policy</h1>
 					<div className='prose'>
 						<p>

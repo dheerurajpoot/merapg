@@ -12,8 +12,8 @@ const Faq = () => {
 	}, []);
 	return (
 		<>
-			<section className='container mt-20 mx-auto py-12 px-4 sm:px-6 lg:px-8'>
-				<div className='space-y-6'>
+			<section className='flex md:mt-20 flex-col items-center justify-center'>
+				<div className='container mt-20 md:mt-2 mx-auto px-4 py-12 md:px-6 lg:py-24 space-y-6'>
 					<div className='text-center'>
 						<h1 className='text-3xl font-bold tracking-tight text-foreground sm:text-4xl'>
 							Frequently Asked Questions
@@ -25,7 +25,7 @@ const Faq = () => {
 					</div>
 					<div className='space-y-4'>
 						<Collapsible>
-							<CollapsibleTrigger className='flex items-center justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
+							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									How do I list my room or PG on MeraPG?
 								</h3>
@@ -39,12 +39,12 @@ const Faq = () => {
 									provide details about the property, upload
 									photos, and set your pricing. Our team will
 									review your listing and get it live on the
-									platform within 24 hours.
+									platform.
 								</p>
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
-							<CollapsibleTrigger className='flex items-center justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
+							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									What kind of properties can I list on
 									MeraPG?
@@ -63,7 +63,7 @@ const Faq = () => {
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
-							<CollapsibleTrigger className='flex items-center justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
+							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									How do I screen and select tenants?
 								</h3>
@@ -82,7 +82,7 @@ const Faq = () => {
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
-							<CollapsibleTrigger className='flex items-center justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
+							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									What fees does MeraPG charge?
 								</h3>
@@ -100,7 +100,7 @@ const Faq = () => {
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
-							<CollapsibleTrigger className='flex items-center justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
+							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									How do I get paid for bookings?
 								</h3>
@@ -119,7 +119,7 @@ const Faq = () => {
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
-							<CollapsibleTrigger className='flex items-center justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
+							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									What support does MeraPG provide?
 								</h3>

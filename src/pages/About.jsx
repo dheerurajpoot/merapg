@@ -8,8 +8,8 @@ const About = () => {
 	}, []);
 	return (
 		<>
-			<div className='flex flex-col mt-20 min-h-[100dvh]'>
-				<main className='flex-1'>
+			<div className='flex md:mt-20 flex-col items-center justify-center bg-background'>
+				<main className='container mt-20 md:mt-2 mx-auto'>
 					<section className='w-full py-10 md:py-20 lg:py-24'>
 						<div className='container px-4 md:px-6'>
 							<div className='grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]'>

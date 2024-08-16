@@ -52,8 +52,8 @@ const ForgotPassword = () => {
 
 	return (
 		<>
-			<div className='flex min-h-[63dvh] mt-20 flex-col items-center justify-center bg-background'>
-				<div className='container mx-auto flex justify-center items-center px-4 py-12 md:px-6 lg:py-24'>
+			<div className='flex md:mt-20 flex-col items-center justify-center bg-background'>
+				<div className='container mt-20 md:mt-2 mx-auto flex justify-center items-center px-4 py-12 md:px-6 lg:py-24'>
 					<Card className='mx-auto w-full max-w-md'>
 						<CardHeader className='space-y-1'>
 							<CardTitle className='text-2xl'>

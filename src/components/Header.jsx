@@ -136,7 +136,7 @@ const Header = () => {
 										Profile
 									</Link>
 									<Link
-										to='#'
+										to='/findpg'
 										className='text-lg font-medium hover:underline underline-offset-4'>
 										Find PG
 									</Link>

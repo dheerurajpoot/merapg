@@ -33,12 +33,13 @@ const Signup = () => {
 			const res = await axios.post(`${api}/user/register`, data);
 			setTimeout(() => {
 				if (res.data.success) {
-					toast.success(res.data.message);
+					toast.success(res.data?.message);
 					navigate("/login");
 				}
 			}, 600);
 		} catch (error) {
 			console.log(error);
+			toast.error(error.response?.data?.message);
 		}
 	};
 

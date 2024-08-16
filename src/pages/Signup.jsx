@@ -22,7 +22,7 @@ const Signup = () => {
 	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
 
-	const handleRegister = async () => {
+	const handleRegister = async (e) => {
 		e.preventDefault();
 		let data = {
 			name,

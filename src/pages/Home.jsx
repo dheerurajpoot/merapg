@@ -19,6 +19,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import Autoplay from "embla-carousel-autoplay";
 
 const Home = () => {
 	const [city, setCity] = useState("");
@@ -67,10 +68,14 @@ const Home = () => {
 						</div>
 						<div className='relative'>
 							<Carousel
+								plugins={[
+									Autoplay({
+										delay: 2000,
+									}),
+								]}
 								opts={{
 									align: "center",
 									loop: true,
-									autoplay: true,
 									interval: 1000,
 								}}
 								className='rounded-xl overflow-hidden'>

@@ -132,9 +132,9 @@ const TermsConditions = () => {
 							<p className='text-muted-foreground'>
 								MeraPG
 								<br />
-								Email: support@merapg.com
+								Email: merapgofficial@gmail.com
 								<br />
-								Phone: +91 123 456 7890
+								Phone: +91 9026315148
 							</p>
 						</div>
 					</div>

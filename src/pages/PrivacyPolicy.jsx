@@ -132,11 +132,11 @@ const PrivacyPolicy = () => {
 								don't hesitate to contact us at:
 							</p>
 							<ul>
-								<li>Email: support@merapg.com</li>
-								<li>Phone: +91 (555) 123-4567</li>
+								<li>Email: merapgofficial@gmail.com</li>
+								<li>Phone: +91 9026315148</li>
 								<li>
-									Address: Old Shivli Road, Kalyanpur, Kanpur
-									(208017)
+									Address: Near Durga Traders, Bamba Road,
+									Kalyanpur, Kanpur (208017)
 								</li>
 							</ul>
 						</div>

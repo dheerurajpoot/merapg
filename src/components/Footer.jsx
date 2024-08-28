@@ -28,15 +28,15 @@ const Footer = () => {
 							<div className='flex items-center gap-2'>
 								<IoIosMail className='h-5 w-5 text-prime' />
 								<Link
-									to='mailto:contact@merapg.coom'
+									to='mailto:merapgofficial@gmail.com'
 									className='text-muted-foreground hover:underline'>
-									contact@merapg.com
+									merapgofficial@gmail.com
 								</Link>
 							</div>
 							<div className='flex items-center gap-2'>
 								<FaMapMarkerAlt className='h-5 w-5 text-prime' />
 								<span className='text-muted-foreground'>
-									Old Shivli Road, Kalyanpur, Kanpur
+									Bamba Road, Kalyanpur, Kanpur
 								</span>
 							</div>
 						</div>

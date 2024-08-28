@@ -87,9 +87,9 @@ const Contact = () => {
 								<div className='flex items-center gap-2'>
 									<IoIosMail className='h-5 w-5 text-prime' />
 									<Link
-										to='mailto:contact@merapg.com'
+										to='mailto:merapgofficial@gmail.com'
 										className='text-muted-foreground hover:text-primary'>
-										contact@merapg.com
+										merapgofficial@gmail.com
 									</Link>
 								</div>
 								<div className='flex items-center gap-2'>

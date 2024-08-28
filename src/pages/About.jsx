@@ -252,17 +252,17 @@ const About = () => {
 							<div className='flex flex-col items-center justify-center space-y-4 text-center'>
 								<div className='space-y-2'>
 									<div className='inline-block rounded-lg bg-muted px-3 py-1 text-sm'>
-										Our Team
+										CEO & Founder
 									</div>
 									<h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-										Meet the Founders
+										Meet the Founder
 									</h2>
 									<p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-										MeraPG was founded by a passionate team
-										committed to revolutionizing the PG and
-										room rental industry. Learn more about
-										our founders and their vision for the
-										platform.
+										MeraPG was founded by a passionate
+										Software Engineer committed to
+										revolutionizing the PG and room rental
+										industry. Learn more about founder and
+										their Mission & vision for the platform.
 									</p>
 								</div>
 							</div>
@@ -272,7 +272,7 @@ const About = () => {
 										<div className='grid gap-2 rounded-lg bg-background p-4'>
 											<div className='flex items-center gap-2'>
 												<Avatar>
-													<AvatarImage src='/placeholder-user.jpg' />
+													<AvatarImage src='./dheerurajpoot.png' />
 													<AvatarFallback>
 														DR
 													</AvatarFallback>
@@ -295,42 +295,82 @@ const About = () => {
 												our innovative platform."
 											</p>
 										</div>
-										{/* <div className='grid gap-2 rounded-lg bg-background p-4'>
-											<div className='flex items-center gap-2'>
-												<Avatar>
-													<AvatarImage src='/placeholder-user.jpg' />
-													<AvatarFallback>
-														CM
-													</AvatarFallback>
-												</Avatar>
-												<div>
-													<p className='text-sm font-medium leading-none'>
-														Chandrakant Maurya
-													</p>
-													<p className='text-xs text-muted-foreground'>
-														Co-founder, COO
-													</p>
-												</div>
+										<div className='grid gap-2 rounded-lg bg-background p-4'>
+											<div className='flex items-center justify-center gap-2'>
+												<p className='text-lg font-semibold leading-none'>
+													Our Mission
+												</p>
 											</div>
 											<p className='text-sm text-muted-foreground'>
-												"We understand the challenges
-												individuals face when\n
-												searching for the right PG or
-												room. That's why we've\n built
-												MeraPG to be a one-stop solution
-												that caters to\n all your rental
-												needs."
+												"At merapg.com, our mission is
+												to redefine the experience of
+												finding and living in a PG
+												(Paying Guest) accommodation. We
+												are committed to providing a
+												seamless, trustworthy, and
+												user-friendly platform that
+												connects renters with the
+												perfect PG that meets their
+												needs and preferences. We aim to
+												empower individuals with
+												comprehensive information,
+												transparent processes, and a
+												wide variety of options, making
+												the search for a home away from
+												home as easy and stress-free as
+												possible. Our goal is to build a
+												community where comfort, safety,
+												and affordability come together,
+												ensuring that every resident
+												feels at home."
 											</p>
-										</div> */}
+										</div>
+										<div className='grid gap-2 rounded-lg bg-background p-4'>
+											<div className='flex items-center justify-center gap-2'>
+												<p className='text-lg font-semibold leading-none'>
+													Our Vision
+												</p>
+											</div>
+											<p className='text-sm text-muted-foreground'>
+												"Our vision at merapg.com is to
+												become the leading platform for
+												PG accommodations, recognized
+												for transforming the way people
+												find and choose their living
+												spaces. We aspire to create a
+												world where searching for a PG
+												is as simple and reliable as
+												choosing a home. By continuously
+												innovating and enhancing our
+												platform, we aim to expand our
+												reach, offering personalized and
+												accessible housing solutions to
+												every individual, regardless of
+												location or budget. We envision
+												a future where every resident
+												finds their ideal living
+												environment, fostering a sense
+												of belonging and community in
+												every corner of the country."
+											</p>
+										</div>
 									</div>
 								</div>
-								<img
-									src='./funiture.jpg'
-									width='550'
-									height='310'
-									alt='Team'
-									className='mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last'
-								/>
+								<div>
+									<img
+										src='./dheerurajpoot.png'
+										width='530'
+										height='750'
+										alt='Founder and CEO'
+										className='mx-auto overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last'
+									/>
+									<p className='text-muted-foreground my-3 text-center'>
+										Contact:{" "}
+										<Link to='mailto:rajpootdheeru90@gmail.com'>
+											rajpootdheeru90@gmail.com
+										</Link>
+									</p>
+								</div>
 							</div>
 						</div>
 					</section>

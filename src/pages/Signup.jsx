@@ -17,6 +17,7 @@ import { api, BACKEND_URL } from "@/api/api";
 import { toast } from "react-toastify";
 
 const Signup = () => {
+	const [loading, setLoading] = useState(false);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -30,14 +31,17 @@ const Signup = () => {
 			password,
 		};
 		try {
+			setLoading(true);
 			const res = await axios.post(`${api}/user/register`, data);
 			setTimeout(() => {
 				if (res.data.success) {
+					setLoading(false);
 					toast.success(res.data?.message);
 					navigate("/login");
 				}
 			}, 600);
 		} catch (error) {
+			setLoading(false);
 			console.log(error);
 			toast.error(error.response?.data?.message);
 		}
@@ -148,7 +152,9 @@ const Signup = () => {
 											<Button
 												type='submit'
 												className='w-full bg-prime hover:bg-prime/90'>
-												Sign Up
+												{loading
+													? "Processing..."
+													: "Sign Up"}
 											</Button>
 										</form>
 									</div>

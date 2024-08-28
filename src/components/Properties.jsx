@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 export default function Properties(data) {
 	const [properties, setProperties] = useState([]);

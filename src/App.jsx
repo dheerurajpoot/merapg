@@ -20,6 +20,7 @@ import FindPG from "./pages/FindPG";
 import GoogleLoginSuccess from "./components/GoogleLoginSuccess";
 import ResetPasswordLink from "./pages/ResetPasswordLink";
 import ForgotPassword from "./pages/ForgotPassword";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
 	return (
@@ -29,6 +30,7 @@ function App() {
 					<Route path='/' element={<Body />}>
 						<Route index element={<Home />} />
 						<Route path='/blog' element={<Blogs />} />
+						<Route path='*' element={<ErrorPage />} />
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/about' element={<About />} />
 						<Route path='/faq' element={<Faq />} />

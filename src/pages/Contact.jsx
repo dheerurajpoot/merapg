@@ -103,8 +103,8 @@ const Contact = () => {
 								<div className='flex items-start gap-2'>
 									<FaMapMarkerAlt className='mt-1 h-5 w-5 text-prime' />
 									<div className='text-muted-foreground'>
-										Old Shivli Road, Kalyanpur, Kanpur
-										(208017)
+										Near Dugra Traders, Bamba Road, <br />
+										Kalyanpur, Kanpur Nagar (208017)
 									</div>
 								</div>
 							</div>

@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 const Login = () => {
+	const [loading, setLoading] = useState(false);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
@@ -27,10 +28,11 @@ const Login = () => {
 		e.preventDefault();
 		try {
 			const data = { email, password };
+			setLoading(true);
 			const res = await axios.post(`${api}/user/login`, data, {
 				withCredentials: true,
 			});
-
+			setLoading(false);
 			if (res.data.success) {
 				toast.success(res.data.message);
 				login(res.data.user);
@@ -39,6 +41,7 @@ const Login = () => {
 				}, 500);
 			}
 		} catch (error) {
+			setLoading(false);
 			toast.error(error.response?.data?.message || "Login failed");
 			console.error(error);
 		}
@@ -142,7 +145,9 @@ const Login = () => {
 											<Button
 												type='submit'
 												className='w-full bg-prime hover:bg-prime/90'>
-												Log In
+												{loading
+													? "Processing..."
+													: "Log In"}
 											</Button>
 										</form>
 									</div>

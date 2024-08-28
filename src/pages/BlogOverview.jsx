@@ -27,7 +27,7 @@ const BlogOverview = () => {
 										<div>Dheeru Rajpoot</div>
 									</div>
 									<div className='text-muted-foreground'>
-										Published on July 30, 2024
+										Published on August 28, 2024
 									</div>
 								</div>
 							</div>
@@ -39,7 +39,9 @@ const BlogOverview = () => {
 								and help you unlock the secrets to finding your
 								dream PG.
 							</p>
-							<h2>Understanding the PG Landscape</h2>
+							<h2 className='text-2xl font-semibold my-5'>
+								Understanding the PG Landscape
+							</h2>
 							<p>
 								PGs, or Paying Guest accommodations, are a
 								popular housing option for students, young
@@ -53,9 +55,11 @@ const BlogOverview = () => {
 								alt='PG Accommodation'
 								width={800}
 								height={450}
-								className='rounded-lg object-cover'
+								className='rounded-lg object-cover my-4'
 							/>
-							<h2>Factors to Consider</h2>
+							<h2 className='text-2xl font-semibold my-5'>
+								Factors to Consider
+							</h2>
 							<p>
 								When searching for the perfect PG, there are
 								several key factors to consider:
@@ -85,7 +89,9 @@ const BlogOverview = () => {
 									roommates
 								</li>
 							</ul>
-							<h2>Navigating the PG Search</h2>
+							<h2 className='text-2xl font-semibold my-5'>
+								Navigating the PG Search
+							</h2>
 							<p>
 								MeraPG makes the PG search process seamless by
 								providing a comprehensive platform that connects
@@ -100,9 +106,11 @@ const BlogOverview = () => {
 								alt='MeraPG Platform'
 								width={800}
 								height={450}
-								className='rounded-lg object-cover'
+								className='rounded-lg object-cover my-4'
 							/>
-							<h2>Conclusion</h2>
+							<h2 className='text-2xl font-semibold my-5'>
+								Conclusion
+							</h2>
 							<p>
 								Finding the right PG can be a game-changer,
 								providing you with a comfortable and affordable
@@ -199,10 +207,10 @@ const BlogOverview = () => {
 											Dheeru Rajpoot
 										</div>
 										<div className='text-muted-foreground'>
-											John is a content writer and editor
-											at MeraPG, with a passion for
-											helping people find their perfect PG
-											accommodation.
+											Dheeru Rajpoot is CEO & Founder,
+											content writer and editor at MeraPG,
+											with a passion for helping people
+											find their perfect PG accommodation.
 										</div>
 									</div>
 								</div>

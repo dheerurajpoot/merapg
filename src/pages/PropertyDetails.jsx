@@ -1,14 +1,17 @@
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { api } from "@/api/api";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaWhatsapp } from "react-icons/fa";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
+import { AiOutlineClose } from "react-icons/ai";
 
 const PropertyDetails = () => {
 	const [property, setProperty] = useState({});
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [selectedImage, setSelectedImage] = useState("");
 	const location = useLocation();
 	const pId = location.pathname.split("/")[2];
 
@@ -25,6 +28,7 @@ const PropertyDetails = () => {
 			toast.error(error.response.data.message);
 		}
 	};
+
 	useEffect(() => {
 		getProperty();
 	}, [pId]);
@@ -32,6 +36,17 @@ const PropertyDetails = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
+	const openModal = (image) => {
+		setSelectedImage(image);
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
+		setSelectedImage("");
+	};
+
 	return (
 		<>
 			<div className='bg-background text-foreground'>
@@ -83,7 +98,7 @@ const PropertyDetails = () => {
 									</div>
 									<div className='grid gap-1'>
 										<p className='text-sm font-medium text-muted-foreground'>
-											Availbility
+											Availability
 										</p>
 										<p>{property?.availability}</p>
 									</div>
@@ -95,16 +110,16 @@ const PropertyDetails = () => {
 								</h2>
 								<div className='grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4'>
 									{property?.images?.map((image, index) => (
-										<Link
-											to='#'
+										<div
 											key={index}
-											className='relative overflow-hidden rounded-lg'>
+											className='relative overflow-hidden rounded-lg cursor-pointer'
+											onClick={() => openModal(image)}>
 											<img
 												src={image}
 												alt={property?.title}
 												className='w-full object-cover transition-all duration-300 group-hover:scale-105'
 											/>
-										</Link>
+										</div>
 									))}
 								</div>
 							</section>
@@ -160,6 +175,23 @@ const PropertyDetails = () => {
 					</div>
 				</div>
 			</div>
+
+			{isModalOpen && (
+				<div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75'>
+					<div className='relative'>
+						<img
+							src={selectedImage}
+							alt='Preview'
+							className='max-w-full max-h-full object-cover rounded-lg'
+						/>
+						<button
+							onClick={closeModal}
+							className='absolute top-4 right-4 text-white text-2xl'>
+							<AiOutlineClose />
+						</button>
+					</div>
+				</div>
+			)}
 		</>
 	);
 };

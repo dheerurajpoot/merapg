@@ -366,8 +366,8 @@ const About = () => {
 									/>
 									<p className='text-muted-foreground my-3 text-center'>
 										Contact:{" "}
-										<Link to='mailto:rajpootdheeru90@gmail.com'>
-											rajpootdheeru90@gmail.com
+										<Link to='mailto:contact@dheeru.org'>
+											contact@dheeru.org
 										</Link>
 									</p>
 								</div>

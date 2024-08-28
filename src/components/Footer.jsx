@@ -42,25 +42,25 @@ const Footer = () => {
 						</div>
 						<div className='flex items-center gap-4'>
 							<Link
-								href='#'
+								to='https://www.facebook.com/merapgofficial'
 								className='text-muted-foreground hover:text-foreground'>
 								<FaFacebook className='h-6 w-6' />
 								<span className='sr-only'>Facebook</span>
 							</Link>
 							<Link
-								href='#'
+								to='https://x.com/merapgofficial'
 								className='text-muted-foreground hover:text-foreground'>
 								<BsTwitterX className='h-6 w-6' />
 								<span className='sr-only'>Twitter</span>
 							</Link>
 							<Link
-								href='#'
+								to='https://www.instagram.com/merapgofficial/'
 								className='text-muted-foreground hover:text-foreground'>
 								<FaInstagram className='h-6 w-6' />
 								<span className='sr-only'>Instagram</span>
 							</Link>
 							<Link
-								href='#'
+								to='https://www.linkedin.com/company/merapgofficial'
 								className='text-muted-foreground hover:text-foreground'>
 								<FaLinkedin className='h-6 w-6' />
 								<span className='sr-only'>LinkedIn</span>

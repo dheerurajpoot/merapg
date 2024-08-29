@@ -74,6 +74,7 @@ const FindPG = () => {
 									<SelectItem value='pg'>PG</SelectItem>
 									<SelectItem value='flat'>Flat</SelectItem>
 									<SelectItem value='house'>House</SelectItem>
+									<SelectItem value='hotel'>Hotel</SelectItem>
 									<SelectItem value='shared'>
 										Shared
 									</SelectItem>

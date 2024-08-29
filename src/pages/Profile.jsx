@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 
 const Profile = () => {
 	const fileInputRef = useRef(null);
+	const [deleteLoading, setDeleteLoading] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [preview, setPreview] = useState(null);
 	const [properties, setProperties] = useState([]);
@@ -126,14 +127,17 @@ const Profile = () => {
 	// delete user property
 	const deleteProperty = async (pId) => {
 		try {
+			setDeleteLoading(true);
 			const res = await axios.delete(`${api}/properties?pId=${pId}`, {
 				withCredentials: true,
 			});
 			if (res.data.success) {
+				setDeleteLoading(false);
 				getUserProperty();
 				toast.success(res.data?.message);
 			}
 		} catch (error) {
+			setDeleteLoading(false);
 			console.log(error);
 			toast.error(error.response?.data?.message);
 		}
@@ -334,7 +338,9 @@ const Profile = () => {
 															}
 															variant='destructive'
 															size='sm'>
-															Delete
+															{deleteLoading
+																? "Deleting..."
+																: "Delete"}
 														</Button>
 													</div>
 												</CardFooter>

@@ -200,6 +200,9 @@ const AddProperty = () => {
 										<SelectItem value='house'>
 											House
 										</SelectItem>
+										<SelectItem value='hotel'>
+											Hotel
+										</SelectItem>
 										<SelectItem value='shared'>
 											Shared
 										</SelectItem>
@@ -301,7 +304,7 @@ const AddProperty = () => {
 						<Button
 							type='submit'
 							className='w-full bg-prime hover:bg-prime/90'>
-							{loading ? "Processing" : "Add Property"}
+							{loading ? "Processing..." : "Add Property"}
 						</Button>
 					</form>
 				</div>

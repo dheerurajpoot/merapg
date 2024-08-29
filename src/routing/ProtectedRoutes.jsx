@@ -6,7 +6,7 @@ const ProtectedRoutes = ({ children }) => {
 	return localuser?.token !== undefined ? (
 		children
 	) : (
-		<Navigate to={"/login"} replace={true} />
+		<Navigate to={"/signup"} replace={true} />
 	);
 };
 

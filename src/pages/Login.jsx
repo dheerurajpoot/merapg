@@ -61,8 +61,7 @@ const Login = () => {
 								Welcome to MeraPG
 							</h1>
 							<p className='max-w-[600px] text-muted-foreground md:text-xl lg:text-base/relaxed xl:text-xl/relaxed'>
-								Find your perfect PG rental with ease. Don't
-								have an account?
+								Don't have an Account, Sign Up here?
 							</p>
 							<Link
 								to='/signup'
@@ -76,8 +75,7 @@ const Login = () => {
 									Log In
 								</CardTitle>
 								<CardDescription>
-									Enter your email and password to access your
-									account.
+									Enter your email and password to Log In.
 								</CardDescription>
 							</CardHeader>
 							<CardContent className='space-y-4'>

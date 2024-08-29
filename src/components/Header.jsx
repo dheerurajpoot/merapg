@@ -87,9 +87,9 @@ const Header = () => {
 									</Link>
 								) : (
 									<Link
-										to='/login'
+										to='/signup'
 										className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
-										Login
+										Sign Up
 									</Link>
 								)}
 							</div>

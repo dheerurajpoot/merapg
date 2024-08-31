@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import path from "path";
 import react from "@vitejs/plugin-react";
-import { BACKEND_URL } from "./src/api/api";
+import { BACKEND_URL } from "./src/api/api.js";
 
 export default defineConfig({
 	build: {

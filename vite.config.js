@@ -9,7 +9,7 @@ export default defineConfig({
 	plugins: [react()],
 	server: {
 		proxy: {
-			"/sitemap.xml": "https://www.merapg.com",
+			"/sitemap.xml": "https://api.merapg.com",
 		},
 	},
 	resolve: {

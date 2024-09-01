@@ -7,6 +7,16 @@ export default defineConfig({
 		sourcemap: false,
 	},
 	plugins: [react()],
+	server: {
+		proxy: {
+			"/sitemap.xml": {
+				target: "https://api.merapg.com",
+				changeOrigin: true,
+				rewrite: (path) =>
+					path.replace(/^\/sitemap\.xml/, "/sitemap.xml"),
+			},
+		},
+	},
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),

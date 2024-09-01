@@ -30,7 +30,7 @@ function App() {
 					<Route path='/' element={<Body />}>
 						<Route index element={<Home />} />
 						<Route path='/blog' element={<Blogs />} />
-						{/* <Route path='*' element={<ErrorPage />} /> */}
+						<Route path='*' element={<ErrorPage />} />
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/about' element={<About />} />
 						<Route path='/faq' element={<Faq />} />

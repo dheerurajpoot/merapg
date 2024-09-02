@@ -57,7 +57,7 @@ const AddProperty = () => {
 					data.append("images", formData.images[i]);
 				}
 			} else if (key === "thumbnail") {
-				if (formData.thumbnail.length > 0) {
+				if (formData.thumbnail?.length > 0) {
 					data.append("thumbnail", formData.thumbnail[0]);
 				}
 			} else {
@@ -206,6 +206,9 @@ const AddProperty = () => {
 										<SelectItem value='shared'>
 											Shared
 										</SelectItem>
+										<SelectItem value='property'>
+											Property
+										</SelectItem>
 										<SelectItem value='shop'>
 											Shop
 										</SelectItem>
@@ -218,7 +221,7 @@ const AddProperty = () => {
 						</div>
 						<div className='grid grid-cols-2 gap-4'>
 							<div className='grid gap-2'>
-								<Label htmlFor='rent'>Rent</Label>
+								<Label htmlFor='rent'>Rent/Price</Label>
 								<Input
 									id='rent'
 									type='number'

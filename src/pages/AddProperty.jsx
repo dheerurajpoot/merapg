@@ -293,7 +293,9 @@ const AddProperty = () => {
 							/>
 						</div>
 						<div className='grid gap-2'>
-							<Label htmlFor='images'>Property Images</Label>
+							<Label htmlFor='images'>
+								Property Images &#40; Max - 10 &#41;
+							</Label>
 							<Input
 								id='images'
 								type='file'

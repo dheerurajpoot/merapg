@@ -119,7 +119,8 @@ const PrivacyPolicy = () => {
 							<p>
 								If you have any concerns or questions about how
 								we handle your personal information, please
-								contact our privacy team at support@merapg.com.
+								contact our privacy team at
+								<b> merapgofficial@gmail.com</b>.
 							</p>
 						</div>
 					</div>

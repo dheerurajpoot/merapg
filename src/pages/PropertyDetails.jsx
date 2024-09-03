@@ -50,20 +50,14 @@ const PropertyDetails = () => {
 	return (
 		<>
 			<div className='bg-background text-foreground'>
-				<section className='relative h-[480px] overflow-hidden'>
-					<img
-						src={property?.thumbnail}
-						alt={property?.title}
-						width={1920}
-						height={1080}
-						className='h-full w-full object-cover'
-					/>
-					<div className='absolute inset-0 bg-gradient-to-t from-background/80 to-background/0' />
-					<div className='absolute inset-0 flex flex-col items-center justify-center gap-4 px-4 text-center'>
+				<section className='relative md:pt-40 pt-32 overflow-hidden'>
+					<div className='flex flex-col items-center justify-center gap-4 px-4 text-center'>
 						<h1 className='text-3xl font-bold sm:text-5xl'>
 							{property?.title}
 						</h1>
 						<p className='text-lg'>Address: {property?.location}</p>
+						<h4 className='text-lg font-semibold'>Description</h4>
+						<p className=''>{property?.description}</p>
 					</div>
 				</section>
 				<div className='container py-12 sm:py-16 md:py-20'>
@@ -73,10 +67,6 @@ const PropertyDetails = () => {
 								<h2 className='mb-2 text-2xl font-bold'>
 									Property Details
 								</h2>
-								<h4 className='text-lg font-semibold'>
-									Description
-								</h4>
-								<p className='mb-6'>{property?.description}</p>
 								<div className='grid gap-4 grid-cols-2'>
 									<div className='grid gap-1 capitalize'>
 										<p className='text-sm font-medium text-muted-foreground'>

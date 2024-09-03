@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/select";
 import Autoplay from "embla-carousel-autoplay";
 import Reviews from "@/components/Reviews";
-import { Link } from "react-router-dom";
 
 const Home = () => {
 	const [city, setCity] = useState("");
@@ -234,15 +233,6 @@ const Home = () => {
 			</div>
 			<div>
 				<Properties data={properties} />
-				{properties.length !== 0 && (
-					<div className='flex justify-center mb-5'>
-						<Link to={"/findpg"}>
-							<Button className='bg-prime'>
-								View All Properties
-							</Button>
-						</Link>
-					</div>
-				)}
 			</div>
 			<hr />
 			<div className='my-10'>

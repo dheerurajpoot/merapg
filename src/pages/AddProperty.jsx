@@ -29,7 +29,6 @@ const AddProperty = () => {
 		services: "",
 		ownerName: "",
 		ownerContact: "",
-		thumbnail: null,
 		images: [],
 	});
 	const handleChange = (e) => {
@@ -55,10 +54,6 @@ const AddProperty = () => {
 			if (key === "images") {
 				for (let i = 0; i < formData.images.length; i++) {
 					data.append("images", formData.images[i]);
-				}
-			} else if (key === "thumbnail") {
-				if (formData.thumbnail?.length > 0) {
-					data.append("thumbnail", formData.thumbnail[0]);
 				}
 			} else {
 				data.append(key, formData[key]);
@@ -90,7 +85,6 @@ const AddProperty = () => {
 				services: "",
 				ownerName: "",
 				ownerContact: "",
-				thumbnail: null,
 				images: [],
 			});
 		} catch (error) {
@@ -286,14 +280,6 @@ const AddProperty = () => {
 									onChange={handleChange}
 								/>
 							</div>
-						</div>
-						<div className='grid gap-2'>
-							<Label htmlFor='thumbnail'>Thumbnail Image</Label>
-							<Input
-								id='thumbnail'
-								type='file'
-								onChange={handleChange}
-							/>
 						</div>
 						<div className='grid gap-2'>
 							<Label htmlFor='images'>

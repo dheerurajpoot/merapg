@@ -40,32 +40,32 @@ export default function Properties(data) {
 						<div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
 							{properties
 								.slice(0, visibleProperties)
-								.map((room, index) => (
+								.map((property, index) => (
 									<div
 										key={index}
 										className='group relative overflow-hidden rounded-lg shadow-lg transition-all hover:shadow-xl'>
 										<Link
-											to={`/property/${room?._id}`}
+											to={`/property/${property?._id}`}
 											className='absolute inset-0 z-10'>
 											<span className='sr-only'>
 												View Room
 											</span>
 										</Link>
 										<img
-											src={room?.images[0]}
-											alt={room?.title}
+											src={property?.images[0]}
+											alt={property?.title}
 											width={600}
 											height={400}
 											className='h-48 w-full object-cover transition-all group-hover:scale-105'
 										/>
 										<div className='space-y-2 p-4'>
 											<h3 className='text-lg font-semibold'>
-												{room?.title}
+												{property?.title}
 											</h3>
 											<div className='flex items-center gap-1'>
 												<FaMapMarkerAlt className='text-prime' />
 												<p className='text-sm'>
-													{room?.location}
+													{property?.location}
 												</p>
 											</div>
 											<div className='flex items-center justify-between'>
@@ -73,13 +73,13 @@ export default function Properties(data) {
 													<span className='font-medium'>
 														Category:
 													</span>{" "}
-													{room?.category}
+													{property?.category}
 												</div>
 												<div className='text-sm text-muted-foreground'>
 													<span className='font-medium'>
 														Area:
 													</span>{" "}
-													{room?.area} Ft
+													{property?.area} Ft
 												</div>
 											</div>
 											<div className='flex items-center justify-between'>
@@ -87,13 +87,13 @@ export default function Properties(data) {
 													<span className='font-medium'>
 														Rent:
 													</span>{" "}
-													{room?.rent}
+													{property?.rent}
 												</div>
 												<div className='text-sm text-muted-foreground'>
 													<span className='font-medium'>
 														Availability:
 													</span>{" "}
-													{room?.availability}
+													{property?.availability}
 												</div>
 											</div>
 										</div>

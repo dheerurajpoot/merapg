@@ -64,6 +64,11 @@ const Header = () => {
 							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
 							Contact
 						</Link>
+						<Link
+							to='/review'
+							className='text-md font-medium hover:text-prime hover:underline underline-offset-4'>
+							Review
+						</Link>
 					</nav>
 					<div className='flex'>
 						<div className='flex md:gap-3 items-center'>
@@ -154,6 +159,11 @@ const Header = () => {
 										to='/contact'
 										className='text-lg font-medium hover:underline underline-offset-4'>
 										Contact
+									</Link>
+									<Link
+										to='/review'
+										className='text-lg font-medium hover:underline underline-offset-4'>
+										Review
 									</Link>
 									<Button className='inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium shadow transition-colors bg-prime hover:bg-prime/90'>
 										<Link to='/addproperty'>

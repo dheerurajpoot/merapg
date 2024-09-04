@@ -254,98 +254,104 @@ const Profile = () => {
 										<span>No property found</span>
 									)}
 									<div className='grid gap-4'>
-										{properties.map((property, index) => (
-											<Card key={index}>
-												<CardHeader>
-													<CardTitle>
-														<Link
-															to={`/property/${property?._id}`}>
-															{property?.title}
-														</Link>
-													</CardTitle>
-													<CardDescription>
-														<span className='flex items-center gap-2'>
-															<FaMapMarkerAlt className='w-4 h-4' />
-															<span>
+										{properties
+											.reverse()
+											.map((property, index) => (
+												<Card key={index}>
+													<CardHeader>
+														<CardTitle>
+															<Link
+																to={`/property/${property?._id}`}>
 																{
-																	property?.location
+																	property?.title
 																}
+															</Link>
+														</CardTitle>
+														<CardDescription>
+															<span className='flex items-center gap-2'>
+																<FaMapMarkerAlt className='w-4 h-4' />
+																<span>
+																	{
+																		property?.location
+																	}
+																</span>
 															</span>
-														</span>
-													</CardDescription>
-												</CardHeader>
-												<CardContent>
-													<div className='grid gap-2'>
-														<div className='flex items-center justify-between'>
-															<span>Rent</span>
-															<span>
-																₹
-																{property?.rent}
-																/month
-															</span>
+														</CardDescription>
+													</CardHeader>
+													<CardContent>
+														<div className='grid gap-2'>
+															<div className='flex items-center justify-between'>
+																<span>
+																	Rent
+																</span>
+																<span>
+																	₹
+																	{
+																		property?.rent
+																	}
+																	/month
+																</span>
+															</div>
+															<div className='flex items-center justify-between'>
+																<span>
+																	Availability
+																</span>
+																<span>
+																	{
+																		property?.availability
+																	}
+																</span>
+															</div>
+															<div className='flex items-center justify-between capitalize'>
+																<span>
+																	Services
+																</span>
+																<span>
+																	{
+																		property?.services
+																	}
+																</span>
+															</div>
+															<div className='flex items-center justify-between capitalize'>
+																<span>
+																	Category
+																</span>
+																<span>
+																	{
+																		property?.category
+																	}
+																</span>
+															</div>
 														</div>
-														<div className='flex items-center justify-between'>
-															<span>
-																Availability
-															</span>
-															<span>
-																{
-																	property?.availability
+													</CardContent>
+													<CardFooter>
+														<div className='flex justify-end gap-2'>
+															<Button
+																onClick={() =>
+																	isBooked(
+																		property?._id
+																	)
 																}
-															</span>
-														</div>
-														<div className='flex items-center justify-between capitalize'>
-															<span>
-																Services
-															</span>
-															<span>
-																{
-																	property?.services
+																className='bg-prime hover:bg-prime/80'
+																size='sm'>
+																{property?.isBooked
+																	? "Unbooked"
+																	: "Booked"}
+															</Button>
+															<Button
+																onClick={() =>
+																	deleteProperty(
+																		property?._id
+																	)
 																}
-															</span>
+																variant='destructive'
+																size='sm'>
+																Delete
+															</Button>
 														</div>
-														<div className='flex items-center justify-between capitalize'>
-															<span>
-																Category
-															</span>
-															<span>
-																{
-																	property?.category
-																}
-															</span>
-														</div>
-													</div>
-												</CardContent>
-												<CardFooter>
-													<div className='flex justify-end gap-2'>
-														<Button
-															onClick={() =>
-																isBooked(
-																	property?._id
-																)
-															}
-															className='bg-prime hover:bg-prime/80'
-															size='sm'>
-															{property?.isBooked
-																? "Unbooked"
-																: "Booked"}
-														</Button>
-														<Button
-															onClick={() =>
-																deleteProperty(
-																	property?._id
-																)
-															}
-															variant='destructive'
-															size='sm'>
-															{deleteLoading
-																? "Deleting..."
-																: "Delete"}
-														</Button>
-													</div>
-												</CardFooter>
-											</Card>
-										))}
+													</CardFooter>
+												</Card>
+											))}
 									</div>
 								</div>
 							</div>

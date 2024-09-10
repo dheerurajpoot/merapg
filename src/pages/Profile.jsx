@@ -164,6 +164,8 @@ const Profile = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
+	const allProperties = properties.reverse();
 	return (
 		<>
 			<section className='w-full'>
@@ -254,14 +256,14 @@ const Profile = () => {
 										<span>No property found</span>
 									)}
 									<div className='grid gap-4'>
-										{properties
-											.reverse()
-											.map((property, index) => (
+										{allProperties.map(
+											(property, index) => (
 												<Card key={index}>
 													<CardHeader>
 														<CardTitle>
 															<Link
-																to={`/property/${property?._id}`}>
+																to={`/property/${property?._id}`}
+																className='capitalize'>
 																{
 																	property?.title
 																}
@@ -351,7 +353,8 @@ const Profile = () => {
 														</div>
 													</CardFooter>
 												</Card>
-											))}
+											)
+										)}
 									</div>
 								</div>
 							</div>

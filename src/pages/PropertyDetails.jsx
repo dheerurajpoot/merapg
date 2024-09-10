@@ -52,7 +52,7 @@ const PropertyDetails = () => {
 			<div className='bg-background text-foreground'>
 				<section className='relative md:pt-40 pt-32 overflow-hidden'>
 					<div className='flex flex-col items-center justify-center gap-4 px-4 text-center'>
-						<h1 className='text-3xl font-bold sm:text-5xl'>
+						<h1 className='text-3xl font-bold sm:text-5xl capitalize'>
 							{property?.title}
 						</h1>
 						<p className='text-lg'>Address: {property?.location}</p>

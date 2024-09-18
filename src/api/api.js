@@ -1,2 +1,2 @@
-export const api = "https://api.merapg.com/api";
-export const BACKEND_URL = "https://api.merapg.com";
+export const api = "https://www.api.merapg.com/api";
+export const BACKEND_URL = "https://www.api.merapg.com";

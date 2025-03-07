@@ -1,2 +1,2 @@
-export const api = "https://www.api.merapg.com/api";
-export const BACKEND_URL = "https://www.api.merapg.com";
+export const api = "https://merapg-backend.onrender.com/api";
+export const BACKEND_URL = "https://merapg-backend.onrender.com";

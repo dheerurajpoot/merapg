@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from "@/api/api";
 import {
 	Collapsible,
 	CollapsibleContent,
@@ -21,20 +22,22 @@ const Faq = () => {
 						</h1>
 						<p className='mt-4 text-lg text-muted-foreground'>
 							Get answers to common questions about renting rooms
-							and PGs through MeraPG.
+							and PGs through {COMPANY_NAME}.
 						</p>
 					</div>
 					<div className='space-y-4'>
 						<Collapsible>
 							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
-									How do I list my room or PG on MeraPG?
+									How do I list my room or PG on{" "}
+									{COMPANY_NAME}?
 								</h3>
 								<FaChevronRight className='h-5 w-5 text-muted-foreground transition-transform' />
 							</CollapsibleTrigger>
 							<CollapsibleContent className='px-6 py-4 text-muted-foreground'>
 								<p>
-									To list your room or PG on MeraPG, simply
+									To list your room or PG on {COMPANY_NAME},
+									simply
 									<Link to='/signup' className='text-prime'>
 										{" "}
 										Sign Up
@@ -56,50 +59,53 @@ const Faq = () => {
 							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
 									What kind of properties can I list on
-									MeraPG?
+									{COMPANY_NAME}?
 								</h3>
 								<FaChevronRight className='h-5 w-5 text-muted-foreground transition-transform' />
 							</CollapsibleTrigger>
 							<CollapsibleContent className='px-6 py-4 text-muted-foreground'>
 								<p>
-									MeraPG accepts listings for a variety of
-									room and PG (paying guest) accommodations,
-									including apartments, houses, hostels, and
-									dormitories. As long as the property meets
-									our basic quality and safety standards, we
-									welcome you to list it on our platform.
+									{COMPANY_NAME} accepts listings for a
+									variety of room and PG (paying guest)
+									accommodations, including apartments,
+									houses, hostels, and dormitories. As long as
+									the property meets our basic quality and
+									safety standards, we welcome you to list it
+									on our platform.
 								</p>
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
 							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
-									What fees does MeraPG charge?
+									What fees does {COMPANY_NAME} charge?
 								</h3>
 								<FaChevronRight className='h-5 w-5 text-muted-foreground transition-transform' />
 							</CollapsibleTrigger>
 							<CollapsibleContent className='px-6 py-4 text-muted-foreground'>
 								<p>
-									MeraPG is Free to list your property at this
-									time. There are no other hidden fees or
-									charges for listing your property or using
-									our services.
+									{COMPANY_NAME} is Free to list your property
+									at this time. There are no other hidden fees
+									or charges for listing your property or
+									using our services.
 								</p>
 							</CollapsibleContent>
 						</Collapsible>
 						<Collapsible>
 							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
-									How do I reset my password on MeraPG?
+									How do I reset my password on {COMPANY_NAME}
+									?
 								</h3>
 								<FaChevronRight className='h-5 w-5 text-muted-foreground transition-transform' />
 							</CollapsibleTrigger>
 							<CollapsibleContent className='px-6 py-4 text-muted-foreground'>
 								<ol className='list-decimal list-inside ml-4'>
 									<li>
-										Visit the MeraPG login page. And click
-										on the <b>"Forgot Password?"</b> link.
-										Or click go to your profile and click on{" "}
+										Visit the {COMPANY_NAME} login page. And
+										click on the <b>"Forgot Password?"</b>{" "}
+										link. Or click go to your profile and
+										click on{" "}
 										<Link
 											to='/reset-password-link'
 											className='text-prime'>
@@ -133,7 +139,8 @@ const Faq = () => {
 										<li>Check your spam or junk folder.</li>
 										<li>
 											Ensure you entered the correct email
-											address associated with your MeraPG
+											address associated with your{" "}
+											{COMPANY_NAME}
 											account.
 										</li>
 										<li>
@@ -141,9 +148,9 @@ const Faq = () => {
 											resending the reset email or contact
 											our support team at{" "}
 											<a
-												href='mailto:support@merapg.com'
+												href='mailto:support@example.com'
 												className='text-blue-600 hover:underline'>
-												merapgofficial@gmail.com
+												example@gmail.com
 											</a>
 											.
 										</li>
@@ -154,17 +161,17 @@ const Faq = () => {
 						<Collapsible>
 							<CollapsibleTrigger className='flex items-center text-left justify-between w-full px-6 py-4 bg-background rounded-lg shadow-sm [&[data-state=open]>svg]:rotate-90'>
 								<h3 className='text-lg font-medium text-foreground'>
-									What support does MeraPG provide?
+									What support does {COMPANY_NAME} provide?
 								</h3>
 								<FaChevronRight className='h-5 w-5 text-muted-foreground transition-transform' />
 							</CollapsibleTrigger>
 							<CollapsibleContent className='px-6 py-4 text-muted-foreground'>
 								<p>
-									MeraPG offers comprehensive support to both
-									property owners and tenants. Our dedicated
-									customer service team is available 24/7 to
-									assist with any questions or issues that may
-									arise. We also provide educational
+									{COMPANY_NAME} offers comprehensive support
+									to both property owners and tenants. Our
+									dedicated customer service team is available
+									24/7 to assist with any questions or issues
+									that may arise. We also provide educational
 									resources, marketing tools, and ongoing
 									guidance to help you succeed on our
 									platform.

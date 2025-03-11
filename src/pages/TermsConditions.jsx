@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from "@/api/api";
 import React, { useEffect } from "react";
 
 const TermsConditions = () => {
@@ -17,11 +18,11 @@ const TermsConditions = () => {
 								Introduction
 							</h2>
 							<p className='text-muted-foreground'>
-								Welcome to MeraPG, a platform that connects
+								Welcome to {COMPANY_NAME}, a platform that connects
 								individuals with room and PG rental
 								opportunities. These Terms of Service govern
 								your use of our service and outline the rights
-								and responsibilities of both you and MeraPG.
+								and responsibilities of both you and {COMPANY_NAME}.
 							</p>
 						</div>
 						<div>
@@ -29,13 +30,13 @@ const TermsConditions = () => {
 								User Accounts
 							</h2>
 							<p className='text-muted-foreground'>
-								To use MeraPG, you must create a user account.
+								To use {COMPANY_NAME}, you must create a user account.
 								During registration, you will be required to
 								provide accurate and up-to-date information. You
 								are responsible for maintaining the
 								confidentiality of your account credentials and
 								for any activity that occurs under your account.
-								MeraPG reserves the right to suspend or
+								{COMPANY_NAME} reserves the right to suspend or
 								terminate your account at any time for any
 								reason.
 							</p>
@@ -45,11 +46,11 @@ const TermsConditions = () => {
 								Use of the Service
 							</h2>
 							<p className='text-muted-foreground'>
-								MeraPG is intended for lawful and ethical use
+								{COMPANY_NAME} is intended for lawful and ethical use
 								only. You agree not to use the service for any
 								illegal activities, harassment, or to infringe
 								on the intellectual property rights of others.
-								MeraPG reserves the right to remove any content
+								{COMPANY_NAME} reserves the right to remove any content
 								or suspend your access to the service if we
 								believe you are in violation of these terms.
 							</p>
@@ -59,7 +60,7 @@ const TermsConditions = () => {
 								Fees and Payments
 							</h2>
 							<p className='text-muted-foreground'>
-								MeraPG may charge fees for certain features or
+								{COMPANY_NAME} may charge fees for certain features or
 								services. All fees are payable in advance and
 								are non-refundable, unless otherwise stated. We
 								reserve the right to change our fees at any
@@ -73,13 +74,13 @@ const TermsConditions = () => {
 								Intellectual Property
 							</h2>
 							<p className='text-muted-foreground'>
-								MeraPG and its related trademarks, logos, and
+								{COMPANY_NAME} and its related trademarks, logos, and
 								other intellectual property are the property of
-								MeraPG and its licensors. You may not use our
+								{COMPANY_NAME} and its licensors. You may not use our
 								intellectual property without our prior written
 								consent. Additionally, any content you upload to
 								the platform remains your property, but you
-								grant MeraPG a license to use and display that
+								grant {COMPANY_NAME} a license to use and display that
 								content as necessary to provide the service.
 							</p>
 						</div>
@@ -88,10 +89,10 @@ const TermsConditions = () => {
 								Disclaimers and Limitations of Liability
 							</h2>
 							<p className='text-muted-foreground'>
-								MeraPG provides the service "as is" and without
+								{COMPANY_NAME} provides the service "as is" and without
 								warranties. We are not responsible for the
 								actions or content of third-party providers or
-								users. In no event shall MeraPG be liable for
+								users. In no event shall {COMPANY_NAME} be liable for
 								any indirect, special, or consequential damages
 								related to your use of the service.
 							</p>
@@ -113,7 +114,7 @@ const TermsConditions = () => {
 								Modifications to the Terms
 							</h2>
 							<p className='text-muted-foreground'>
-								MeraPG reserves the right to modify these Terms
+								{COMPANY_NAME} reserves the right to modify these Terms
 								of Service at any time. We will provide you with
 								notice of any changes, and your continued use of
 								the service after such notice will constitute
@@ -126,15 +127,15 @@ const TermsConditions = () => {
 							</h2>
 							<p className='text-muted-foreground'>
 								If you have any questions or concerns about
-								these Terms of Service or your use of the MeraPG
+								these Terms of Service or your use of the {COMPANY_NAME}
 								platform, please contact us at:
 							</p>
 							<p className='text-muted-foreground'>
-								MeraPG
+								{COMPANY_NAME}
 								<br />
-								Email: merapgofficial@gmail.com
+								Email: example@gmail.com
 								<br />
-								Phone: +91 9026315148
+								Phone: +91 9876543219
 							</p>
 						</div>
 					</div>

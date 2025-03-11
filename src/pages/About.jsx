@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from "@/api/api";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -16,15 +17,17 @@ const About = () => {
 								<div className='flex flex-col justify-center space-y-4'>
 									<div className='space-y-2'>
 										<h1 className='text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>
-											Discover Your Perfect PG with MeraPG
+											Discover Your Perfect PG with{" "}
+											{COMPANY_NAME}
 										</h1>
 										<p className='max-w-[600px] text-muted-foreground md:text-xl'>
-											MeraPG is a leading platform that
-											connects students and professionals
-											with verified and affordable PG
-											accommodations. Our mission is to
-											make finding a safe and comfortable
-											living space easy and hassle-free.
+											{COMPANY_NAME} is a leading platform
+											that connects students and
+											professionals with verified and
+											affordable PG accommodations. Our
+											mission is to make finding a safe
+											and comfortable living space easy
+											and hassle-free.
 										</p>
 									</div>
 									<div className='flex flex-col gap-2 min-[400px]:flex-row'>
@@ -61,14 +64,14 @@ const About = () => {
 										Empowering Renters and Landlords
 									</h2>
 									<p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-										At MeraPG, we believe in creating a
-										seamless and transparent rental
-										experience for everyone. Our mission is
-										to connect individuals seeking rooms or
-										PGs with reliable landlords, while
-										providing the necessary tools and
-										resources to ensure a hassle-free
-										process.
+										At {COMPANY_NAME}, we believe in
+										creating a seamless and transparent
+										rental experience for everyone. Our
+										mission is to connect individuals
+										seeking rooms or PGs with reliable
+										landlords, while providing the necessary
+										tools and resources to ensure a
+										hassle-free process.
 									</p>
 								</div>
 							</div>
@@ -177,8 +180,8 @@ const About = () => {
 									</h2>
 									<p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
 										Hear from our satisfied customers and
-										learn how MeraPG has transformed their
-										PG and room rental experience.
+										learn how {COMPANY_NAME} has transformed
+										their PG and room rental experience.
 									</p>
 								</div>
 							</div>
@@ -203,11 +206,11 @@ const About = () => {
 												</div>
 											</div>
 											<p className='text-sm text-muted-foreground'>
-												"MeraPG made my PG search so
-												much easier. The platform is
-												user-friendly, and I was able to
-												find a great PG that fits my
-												budget and needs."
+												"{COMPANY_NAME} made my PG
+												search so much easier. The
+												platform is user-friendly, and I
+												was able to find a great PG that
+												fits my budget and needs."
 											</p>
 										</div>
 										<div className='grid gap-2 rounded-lg bg-background p-4'>
@@ -229,9 +232,9 @@ const About = () => {
 											</div>
 											<p className='text-sm text-muted-foreground'>
 												"As a PG owner, I've had a great
-												experience with MeraPG. The
-												platform has helped me reach a
-												wider audience and manage my
+												experience with {COMPANY_NAME}.
+												The platform has helped me reach
+												a wider audience and manage my
 												listings efficiently."
 											</p>
 										</div>
@@ -258,11 +261,12 @@ const About = () => {
 										Meet the Founder
 									</h2>
 									<p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-										MeraPG was founded by a passionate
-										Software Engineer committed to
-										revolutionizing the PG and room rental
-										industry. Learn more about founder and
-										their Mission & vision for the platform.
+										{COMPANY_NAME} was founded by a
+										passionate Software Engineer committed
+										to revolutionizing the PG and room
+										rental industry. Learn more about
+										founder and their Mission & vision for
+										the platform.
 									</p>
 								</div>
 							</div>
@@ -302,8 +306,8 @@ const About = () => {
 												</p>
 											</div>
 											<p className='text-sm text-muted-foreground'>
-												"At merapg.com, our mission is
-												to redefine the experience of
+												"At {COMPANY_NAME}, our mission
+												is to redefine the experience of
 												finding and living in a PG
 												(Paying Guest) accommodation. We
 												are committed to providing a
@@ -332,20 +336,21 @@ const About = () => {
 												</p>
 											</div>
 											<p className='text-sm text-muted-foreground'>
-												"Our vision at merapg.com is to
-												become the leading platform for
-												PG accommodations, recognized
-												for transforming the way people
-												find and choose their living
-												spaces. We aspire to create a
-												world where searching for a PG
-												is as simple and reliable as
-												choosing a home. By continuously
-												innovating and enhancing our
-												platform, we aim to expand our
-												reach, offering personalized and
-												accessible housing solutions to
-												every individual, regardless of
+												"Our vision at {COMPANY_NAME} is
+												to become the leading platform
+												for PG accommodations,
+												recognized for transforming the
+												way people find and choose their
+												living spaces. We aspire to
+												create a world where searching
+												for a PG is as simple and
+												reliable as choosing a home. By
+												continuously innovating and
+												enhancing our platform, we aim
+												to expand our reach, offering
+												personalized and accessible
+												housing solutions to every
+												individual, regardless of
 												location or budget. We envision
 												a future where every resident
 												finds their ideal living
@@ -366,8 +371,8 @@ const About = () => {
 									/>
 									<p className='text-muted-foreground my-3 text-center'>
 										Contact:{" "}
-										<Link to='mailto:contact@dheeru.org'>
-											contact@dheeru.org
+										<Link to='mailto:contact@example.com'>
+											contact@example.com
 										</Link>
 									</p>
 								</div>

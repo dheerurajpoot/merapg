@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { COMPANY_NAME } from "@/api/api";
 
 const Contact = () => {
 	const apiKey = "b29ca6f2-b850-409b-9e9e-b608e1ec4e5f";
@@ -69,7 +70,7 @@ const Contact = () => {
 					/>
 					<div className='absolute mt-10 md:mt-20 inset-0 bg-black/50 flex flex-col items-center bg-[#fff]/40 justify-center px-4 text-center'>
 						<h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold'>
-							Get in Touch with MeraPG
+							Get in Touch with {COMPANY_NAME}
 						</h1>
 						<p className='mt-4 text-lg sm:text-xl'>
 							Have a question or need assistance? Our team is here
@@ -87,9 +88,9 @@ const Contact = () => {
 								<div className='flex items-center gap-2'>
 									<IoIosMail className='h-5 w-5 text-prime' />
 									<Link
-										to='mailto:merapgofficial@gmail.com'
+										to='mailto:example@gmail.com'
 										className='text-muted-foreground hover:text-primary'>
-										merapgofficial@gmail.com
+										example@gmail.com
 									</Link>
 								</div>
 								<div className='flex items-center gap-2'>
@@ -97,13 +98,13 @@ const Contact = () => {
 									<a
 										href='tel:+919026315148'
 										className='text-muted-foreground hover:text-primary'>
-										+91-9026315148
+										+91-9876543219
 									</a>
 								</div>
 								<div className='flex items-start gap-2'>
 									<FaMapMarkerAlt className='mt-1 h-5 w-5 text-prime' />
 									<div className='text-muted-foreground'>
-										Near Dugra Traders, Bamba Road, <br />
+										Panki Road, <br />
 										Kalyanpur, Kanpur Nagar (208017)
 									</div>
 								</div>

@@ -8,6 +8,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { IoIosMail } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { COMPANY_NAME } from "@/api/api";
 
 const Footer = () => {
 	return (
@@ -22,7 +23,7 @@ const Footer = () => {
 								<Link
 									to='tel:+919026315148'
 									className='text-muted-foreground hover:underline'>
-									+91 9026315148
+									+91 9876543219
 								</Link>
 							</div>
 							<div className='flex items-center gap-2'>
@@ -30,7 +31,7 @@ const Footer = () => {
 								<Link
 									to='mailto:merapgofficial@gmail.com'
 									className='text-muted-foreground hover:underline'>
-									merapgofficial@gmail.com
+									theinfofeeds@gmail.com
 								</Link>
 							</div>
 							<div className='flex items-center gap-2'>
@@ -116,13 +117,13 @@ const Footer = () => {
 						</div>
 					</div>
 					<div className='grid gap-4'>
-						<h3 className='text-lg font-semibold'>About MeraPG</h3>
+						<h3 className='text-lg font-semibold'>About</h3>
 						<p className='text-muted-foreground'>
-							MeraPG is a leading platform for finding and renting
-							rooms or PGs in your city. We connect landlords and
-							tenants, making the process of finding a comfortable
-							and affordable place to live easier than ever
-							before.
+							{COMPANY_NAME} is a leading platform for finding and
+							renting rooms or PGs in your city. We connect
+							landlords and tenants, making the process of finding
+							a comfortable and affordable place to live easier
+							than ever before.
 						</p>
 						<Link
 							to='/about'
@@ -133,7 +134,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className='mt-6 border-t border-muted pt-6 text-center text-xs'>
-					<p>&copy; 2024 MeraPG. All rights reserved.</p>
+					<p>&copy; 2025 {COMPANY_NAME}. All rights reserved.</p>
 				</div>
 			</footer>
 		</div>

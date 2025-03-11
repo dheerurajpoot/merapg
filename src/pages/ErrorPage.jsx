@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TiWarningOutline } from "react-icons/ti";
+import { COMPANY_NAME } from "@/api/api";
 
 const ErrorPage = () => {
 	return (
@@ -14,7 +15,7 @@ const ErrorPage = () => {
 								Oops, page not found!
 							</h1>
 							<p className='mt-4 text-muted-foreground'>
-								The page you're looking for on meraPG.com
+								The page you're looking for on {COMPANY_NAME}
 								doesn't exist. Let's get you back on track.
 							</p>
 							<div className='mt-6'>

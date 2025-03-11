@@ -1,4 +1,4 @@
-import { api } from "@/api/api";
+import { api, COMPANY_NAME } from "@/api/api";
 import Newsletter from "@/components/Newsletter";
 import Properties from "@/components/Properties";
 import Sortabout from "@/components/Sortabout";
@@ -66,8 +66,8 @@ const Home = () => {
 									Find Your Perfect Property
 								</h1>
 								<p className='max-w-[600px] text-primary-foreground/90 md:text-xl'>
-									Discover your dream home with MeraPG's
-									comprehensive real estate search.
+									Discover your dream home with {COMPANY_NAME}
+									's comprehensive real estate search.
 								</p>
 							</div>
 						</div>

@@ -1,4 +1,4 @@
-import { api } from "@/api/api";
+import { api, COMPANY_NAME } from "@/api/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -116,7 +116,7 @@ const AddProperty = () => {
 						</h1>
 						<p className='mt-4 text-muted-foreground'>
 							Provide detailed information about your property
-							listing on MeraPG.
+							listing on {COMPANY_NAME}.
 						</p>
 						<img
 							src='/living.jpg'

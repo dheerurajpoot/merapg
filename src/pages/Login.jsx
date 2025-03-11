@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
-import { api, BACKEND_URL } from "@/api/api";
+import { api, BACKEND_URL, COMPANY_NAME } from "@/api/api";
 import { toast } from "react-toastify";
 import { AuthContext } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,7 @@ const Login = () => {
 					<div className='grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16'>
 						<div className='flex flex-col items-center justify-center space-y-4 text-center md:items-start md:text-left'>
 							<h1 className='text-3xl font-bold tracking-tighter text-foreground sm:text-4xl md:text-5xl lg:text-6xl'>
-								Welcome to MeraPG
+								Welcome to {COMPANY_NAME}
 							</h1>
 							<p className='max-w-[600px] text-muted-foreground md:text-xl lg:text-base/relaxed xl:text-xl/relaxed'>
 								Don't have an Account, Sign Up here?

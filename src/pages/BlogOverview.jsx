@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from "@/api/api";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React, { useEffect } from "react";
@@ -16,7 +17,7 @@ const BlogOverview = () => {
 							<div className='space-y-4 mb-4'>
 								<h1 className='text-2xl md:text-4xl font-bold tracking-tight lg:text-5xl'>
 									Unlocking the Secrets to Finding the Perfect
-									PG: A MeraPG Guide
+									PG: A {COMPANY_NAME} Guide
 								</h1>
 								<div className='flex items-center gap-2 md:gap-4'>
 									<div className='flex items-center gap-2 text-muted-foreground'>
@@ -93,13 +94,13 @@ const BlogOverview = () => {
 								Navigating the PG Search
 							</h2>
 							<p>
-								MeraPG makes the PG search process seamless by
-								providing a comprehensive platform that connects
-								you with a wide range of verified PG options.
-								Our user-friendly interface allows you to filter
-								and sort listings based on your specific
-								requirements, making it easier to find the
-								perfect fit.
+								{COMPANY_NAME} makes the PG search process
+								seamless by providing a comprehensive platform
+								that connects you with a wide range of verified
+								PG options. Our user-friendly interface allows
+								you to filter and sort listings based on your
+								specific requirements, making it easier to find
+								the perfect fit.
 							</p>
 							<img
 								src='/bedroom.jpg'
@@ -115,9 +116,10 @@ const BlogOverview = () => {
 								Finding the right PG can be a game-changer,
 								providing you with a comfortable and affordable
 								living environment that supports your personal
-								and professional growth. With MeraPG, the
-								process has never been easier. Start your search
-								today and unlock the secrets to your perfect PG!
+								and professional growth. With {COMPANY_NAME},
+								the process has never been easier. Start your
+								search today and unlock the secrets to your
+								perfect PG!
 							</p>
 						</div>
 					</div>
@@ -208,9 +210,10 @@ const BlogOverview = () => {
 										</div>
 										<div className='text-muted-foreground'>
 											Dheeru Rajpoot is CEO & Founder,
-											content writer and editor at MeraPG,
-											with a passion for helping people
-											find their perfect PG accommodation.
+											content writer and editor at{" "}
+											{COMPANY_NAME}, with a passion for
+											helping people find their perfect PG
+											accommodation.
 										</div>
 									</div>
 								</div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { COMPANY_NAME } from "@/api/api";
 
 const Sortabout = () => {
 	return (
@@ -12,11 +13,11 @@ const Sortabout = () => {
 							Best Place To Find The Perfect Property
 						</h1>
 						<p className='my-5 text-lg text-gray-800'>
-							At MeraPG, we're on a mission to revolutionize the
-							way you find accommodation. No more dealing with
-							slimy brokers or overpriced rentals. We're here to
-							make your search for the perfect PG or hostel as
-							smooth as butter
+							At {COMPANY_NAME}, we're on a mission to
+							revolutionize the way you find accommodation. No
+							more dealing with slimy brokers or overpriced
+							rentals. We're here to make your search for the
+							perfect PG or hostel as smooth as butter
 						</p>
 						<Link to='/about'>
 							<Button className='flex-none my-4 bg-prime hover:bg-prime/80'>

@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from "@/api/api";
 import React, { useEffect } from "react";
 
 const PrivacyPolicy = () => {
@@ -11,8 +12,8 @@ const PrivacyPolicy = () => {
 					<h1 className='text-3xl font-bold'>Privacy Policy</h1>
 					<div className='prose'>
 						<p>
-							At MeraPG, we are committed to protecting the
-							privacy and security of our users. This Privacy
+							At {COMPANY_NAME}, we are committed to protecting
+							the privacy and security of our users. This Privacy
 							Policy outlines how we collect, use, and safeguard
 							the personal information you provide to us when
 							using our room and PG rental platform.
@@ -120,7 +121,7 @@ const PrivacyPolicy = () => {
 								If you have any concerns or questions about how
 								we handle your personal information, please
 								contact our privacy team at
-								<b> merapgofficial@gmail.com</b>.
+								<b> example@gmail.com</b>.
 							</p>
 						</div>
 					</div>
@@ -133,11 +134,11 @@ const PrivacyPolicy = () => {
 								don't hesitate to contact us at:
 							</p>
 							<ul>
-								<li>Email: merapgofficial@gmail.com</li>
-								<li>Phone: +91 9026315148</li>
+								<li>Email: example@gmail.com</li>
+								<li>Phone: +91 9876543219</li>
 								<li>
-									Address: Near Durga Traders, Bamba Road,
-									Kalyanpur, Kanpur (208017)
+									Address: Panki Road, Kalyanpur, Kanpur
+									(208017)
 								</li>
 							</ul>
 						</div>

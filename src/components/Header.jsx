@@ -36,7 +36,7 @@ const Header = () => {
 						isScrolled ? "w-full 2xl:justify-around " : "container"
 					} mx-auto flex h-full items-center bg-[#fff] justify-between px-2 md:px-6 shadow-lg shadow-prime/50 transition-all duration-500`}>
 					<Link to='/'>
-						<img className='w-36' src={merapgLogo} alt='MERAPG' />
+						<h3 className='text-xl font-semibold'>TheInfoFeed</h3>
 					</Link>
 					<nav className='hidden items-center gap-6 md:flex'>
 						<Link

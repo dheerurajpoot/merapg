@@ -31,7 +31,7 @@ const Footer = () => {
 								<Link
 									to='mailto:merapgofficial@gmail.com'
 									className='text-muted-foreground hover:underline'>
-									theinfofeeds@gmail.com
+									merapgofficial@gmail.com
 								</Link>
 							</div>
 							<div className='flex items-center gap-2'>
